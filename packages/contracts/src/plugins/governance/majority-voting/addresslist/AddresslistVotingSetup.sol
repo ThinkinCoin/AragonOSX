@@ -5,21 +5,16 @@ pragma solidity 0.8.17;
 import {IDAO} from "../../../../core/dao/IDAO.sol";
 import {DAO} from "../../../../core/dao/DAO.sol";
 import {PermissionLib} from "../../../../core/permission/PermissionLib.sol";
-import {PluginSetup, IPluginSetup} from "../../../../framework/plugin/setup/PluginSetup.sol";
+import {PluginSetupUpgradeable, IPluginSetup} from "../../../../framework/plugin/setup/PluginSetupUpgradeable.sol";
 import {MajorityVotingBase} from "../MajorityVotingBase.sol";
 import {AddresslistVoting} from "./AddresslistVoting.sol";
 
 /// @title AddresslistVotingSetup
 /// @author Aragon Association - 2022-2023
 /// @notice The setup contract of the `AddresslistVoting` plugin.
-contract AddresslistVotingSetup is PluginSetup {
-    /// @notice The address of `AddresslistVoting` plugin logic contract to be used in creating proxy contracts.
-    AddresslistVoting private immutable addresslistVotingBase;
-
+contract AddresslistVotingSetup is PluginSetupUpgradeable {
     /// @notice The contract constructor, that deploys the `AddresslistVoting` plugin logic contract.
-    constructor() {
-        addresslistVotingBase = new AddresslistVoting();
-    }
+    constructor() PluginSetupUpgradeable(address(new AddresslistVoting())) {}
 
     /// @inheritdoc IPluginSetup
     function prepareInstallation(
@@ -32,7 +27,7 @@ contract AddresslistVotingSetup is PluginSetup {
 
         // Prepare and Deploy the plugin proxy.
         plugin = createERC1967Proxy(
-            address(addresslistVotingBase),
+            implementation,
             abi.encodeWithSelector(
                 AddresslistVoting.initialize.selector,
                 _dao,
@@ -40,6 +35,7 @@ contract AddresslistVotingSetup is PluginSetup {
                 members
             )
         );
+        AddresslistVoting addresslistVoting = AddresslistVoting(implementation);
 
         // Prepare permissions
         PermissionLib.MultiTargetPermission[]
@@ -52,7 +48,7 @@ contract AddresslistVotingSetup is PluginSetup {
             plugin,
             _dao,
             PermissionLib.NO_CONDITION,
-            addresslistVotingBase.UPDATE_ADDRESSES_PERMISSION_ID()
+            addresslistVoting.UPDATE_ADDRESSES_PERMISSION_ID()
         );
 
         permissions[1] = PermissionLib.MultiTargetPermission(
@@ -60,7 +56,7 @@ contract AddresslistVotingSetup is PluginSetup {
             plugin,
             _dao,
             PermissionLib.NO_CONDITION,
-            addresslistVotingBase.UPDATE_VOTING_SETTINGS_PERMISSION_ID()
+            addresslistVoting.UPDATE_VOTING_SETTINGS_PERMISSION_ID()
         );
 
         permissions[2] = PermissionLib.MultiTargetPermission(
@@ -68,7 +64,7 @@ contract AddresslistVotingSetup is PluginSetup {
             plugin,
             _dao,
             PermissionLib.NO_CONDITION,
-            addresslistVotingBase.UPGRADE_PLUGIN_PERMISSION_ID()
+            addresslistVoting.UPGRADE_PLUGIN_PERMISSION_ID()
         );
 
         // Grant `EXECUTE_PERMISSION` of the DAO to the plugin.
@@ -88,6 +84,8 @@ contract AddresslistVotingSetup is PluginSetup {
         address _dao,
         SetupPayload calldata _payload
     ) external view returns (PermissionLib.MultiTargetPermission[] memory permissions) {
+        AddresslistVoting addresslistVoting = AddresslistVoting(_payload.plugin);
+
         // Prepare permissions
         permissions = new PermissionLib.MultiTargetPermission[](4);
 
@@ -97,7 +95,7 @@ contract AddresslistVotingSetup is PluginSetup {
             _payload.plugin,
             _dao,
             PermissionLib.NO_CONDITION,
-            addresslistVotingBase.UPDATE_ADDRESSES_PERMISSION_ID()
+            addresslistVoting.UPDATE_ADDRESSES_PERMISSION_ID()
         );
 
         permissions[1] = PermissionLib.MultiTargetPermission(
@@ -105,7 +103,7 @@ contract AddresslistVotingSetup is PluginSetup {
             _payload.plugin,
             _dao,
             PermissionLib.NO_CONDITION,
-            addresslistVotingBase.UPDATE_VOTING_SETTINGS_PERMISSION_ID()
+            addresslistVoting.UPDATE_VOTING_SETTINGS_PERMISSION_ID()
         );
 
         permissions[2] = PermissionLib.MultiTargetPermission(
@@ -113,7 +111,7 @@ contract AddresslistVotingSetup is PluginSetup {
             _payload.plugin,
             _dao,
             PermissionLib.NO_CONDITION,
-            addresslistVotingBase.UPGRADE_PLUGIN_PERMISSION_ID()
+            addresslistVoting.UPGRADE_PLUGIN_PERMISSION_ID()
         );
 
         permissions[3] = PermissionLib.MultiTargetPermission(
@@ -123,10 +121,5 @@ contract AddresslistVotingSetup is PluginSetup {
             PermissionLib.NO_CONDITION,
             DAO(payable(_dao)).EXECUTE_PERMISSION_ID()
         );
-    }
-
-    /// @inheritdoc IPluginSetup
-    function implementation() external view returns (address) {
-        return address(addresslistVotingBase);
     }
 }

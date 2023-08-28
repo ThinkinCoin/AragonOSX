@@ -12,6 +12,8 @@ contract PlaceholderSetup is PluginSetup {
     /// @notice Thrown if the dummy is used.
     error PlaceholderSetupCannotBeUsed();
 
+    constructor() PluginSetup(address(0)) {}
+
     /// @inheritdoc IPluginSetup
     function prepareInstallation(
         address /*_dao*/,
@@ -26,10 +28,5 @@ contract PlaceholderSetup is PluginSetup {
         SetupPayload calldata /*_payload*/
     ) external pure returns (PermissionLib.MultiTargetPermission[] memory /*permissions*/) {
         revert PlaceholderSetupCannotBeUsed();
-    }
-
-    /// @inheritdoc IPluginSetup
-    function implementation() external pure returns (address) {
-        return address(0);
     }
 }
