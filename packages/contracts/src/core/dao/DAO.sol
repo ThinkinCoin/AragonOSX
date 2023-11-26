@@ -3,13 +3,13 @@
 pragma solidity ^0.8.17;
 
 import "../../utils/introspection/ERC165StorageUpgradeable.sol";
-import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/Initializable.sol";
-import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/UUPSUpgradeable.sol";
-import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol";
-import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/IERC20Upgradeable.sol";
-import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC721/IERC721ReceiverUpgradeable.sol";
-import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC1155/IERC1155Upgradeable.sol";
-import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC1155/IERC1155ReceiverUpgradeable.sol";
+import "../../proxy/utils/Initializable.sol";
+import "../../proxy/utils/UUPSUpgradeable.sol";
+import "../../token/ERC20/utils/SafeERC20Upgradeable.sol";
+import "../../token/ERC20/IERC20Upgradeable.sol";
+import "../../token/ERC721/IERC721ReceiverUpgradeable.sol";
+import "../../token/ERC1155/IERC1155Upgradeable.sol";
+import "../../token/ERC1155/IERC1155ReceiverUpgradeable.sol";
 import "../../utils/AddressUpgradeable.sol";
 import "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/interfaces/IERC1271.sol";
 
