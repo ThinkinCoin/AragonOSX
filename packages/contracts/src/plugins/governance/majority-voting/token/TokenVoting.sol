@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.8;
 
-import {IVotesUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/governance/utils/IVotesUpgradeable.sol";
-import {SafeCastUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/math/SafeCastUpgradeable.sol";
-import {IERC20Upgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/IERC20Upgradeable.sol";
+import {IVotesUpgradeable} from "../../../../../governance/utils/IVotesUpgradeable.sol";
+import {SafeCastUpgradeable} from "../../../../../utils/math/SafeCastUpgradeable.sol";
+import {IERC20Upgradeable} from "../../../../../token/ERC20/IERC20Upgradeable.sol";
 
 import {IMembership} from "../../../../core/plugin/membership/IMembership.sol";
 import {IDAO} from "../../../../core/dao/IDAO.sol";
