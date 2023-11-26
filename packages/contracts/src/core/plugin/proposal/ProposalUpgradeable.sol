@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.8;
 
-import {CountersUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol";
-import {ERC165Upgradeable} from "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol";
+import {CountersUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/CountersUpgradeable.sol";
+import {ERC165Upgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/ERC165Upgradeable.sol";
 
 import "./IProposal.sol";
 

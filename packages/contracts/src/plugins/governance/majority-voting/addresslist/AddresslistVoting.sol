@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {SafeCastUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/math/SafeCastUpgradeable.sol";
+import {SafeCastUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/math/SafeCastUpgradeable.sol";
 
 import {IDAO} from "../../../../core/dao/IDAO.sol";
 import {RATIO_BASE, _applyRatioCeiled} from "../../../utils/Ratio.sol";

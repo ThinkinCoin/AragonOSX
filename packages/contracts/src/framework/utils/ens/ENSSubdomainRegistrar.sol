@@ -2,11 +2,11 @@
 
 pragma solidity ^0.8.8;
 
-import "@ensdomains/ens-contracts/contracts/registry/ENS.sol";
-import "@ensdomains/ens-contracts/contracts/resolvers/Resolver.sol";
+import "https://raw.githubusercontent.com/ensdomains/ens-contracts/v0.0.19/contracts/registry/ENS.sol";
+import "https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/Resolver.sol";
 
 import {ProtocolVersion} from "../../../utils/protocol/ProtocolVersion.sol";
-import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import {UUPSUpgradeable} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/proxy/utils/UUPSUpgradeable.sol";
 import {DaoAuthorizableUpgradeable} from "../../../core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol";
 import {IDAO} from "../../../core/dao/IDAO.sol";
 

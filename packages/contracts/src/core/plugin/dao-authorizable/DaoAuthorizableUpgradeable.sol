@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {ContextUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol";
+import {ContextUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/ContextUpgradeable.sol";
 
 import {IDAO} from "../../dao/IDAO.sol";
 import {_auth} from "../../utils/auth.sol";

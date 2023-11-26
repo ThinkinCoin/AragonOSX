@@ -12,7 +12,7 @@ To support meta transactions, your implementation contract must inherit and over
 Below we show for the example of the `TokenVoting` plugin how you can make an existing plugin contract meta-transaction compatible.
 
 ```solidity
-import {ContextUpgradeable} from '@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol';
+import {ContextUpgradeable} from 'https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/ContextUpgradeable.sol';
 import {BaseRelayRecipient} from '@opengsn/contracts/src/BaseRelayRecipient.sol';
 
 contract MyPlugin is PluginUUPSUpgradeable, BaseRelayRecipient {

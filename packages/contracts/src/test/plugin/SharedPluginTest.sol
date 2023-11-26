@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import {Initializable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/Initializable.sol";
 
 import {PermissionCondition} from "../../core/permission/PermissionCondition.sol";
 import {PluginUUPSUpgradeable} from "../../core/plugin/PluginUUPSUpgradeable.sol";

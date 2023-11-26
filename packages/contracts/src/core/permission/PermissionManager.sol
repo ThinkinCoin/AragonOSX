@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.8;
 
-import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol";
+import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/Initializable.sol";
+import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/AddressUpgradeable.sol";
 
 import {IPermissionCondition} from "./IPermissionCondition.sol";
 import {PermissionCondition} from "./PermissionCondition.sol";

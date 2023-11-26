@@ -2,15 +2,15 @@
 
 pragma solidity ^0.8.8;
 
-import "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165StorageUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721ReceiverUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155ReceiverUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol";
+import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/ERC165StorageUpgradeable.sol";
+import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/Initializable.sol";
+import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/UUPSUpgradeable.sol";
+import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol";
+import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/IERC20Upgradeable.sol";
+import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC721/IERC721ReceiverUpgradeable.sol";
+import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC1155/IERC1155Upgradeable.sol";
+import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC1155/IERC1155ReceiverUpgradeable.sol";
+import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/AddressUpgradeable.sol";
 import "@openzeppelin/contracts/interfaces/IERC1271.sol";
 
 import {IProtocolVersion} from "../../utils/protocol/IProtocolVersion.sol";

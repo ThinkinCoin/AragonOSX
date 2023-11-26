@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {CheckpointsUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/CheckpointsUpgradeable.sol";
+import {CheckpointsUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/CheckpointsUpgradeable.sol";
 
 import {_uncheckedAdd, _uncheckedSub} from "../../utils/UncheckedMath.sol";
 

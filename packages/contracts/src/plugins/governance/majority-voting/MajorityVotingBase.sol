@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.8;
 
-import {ERC165Upgradeable} from "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol";
-import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import {SafeCastUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/math/SafeCastUpgradeable.sol";
+import {ERC165Upgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/ERC165Upgradeable.sol";
+import {Initializable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/Initializable.sol";
+import {SafeCastUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/math/SafeCastUpgradeable.sol";
 
 import {IProposal} from "../../../core/plugin/proposal/IProposal.sol";
 import {ProposalUpgradeable} from "../../../core/plugin/proposal/ProposalUpgradeable.sol";

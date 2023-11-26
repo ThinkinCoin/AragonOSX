@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity >=0.8.4;
 
-import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
+import "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/utils/introspection/IERC165.sol";
 import "./profiles/IABIResolver.sol";
 import "./profiles/IAddressResolver.sol";
 import "./profiles/IAddrResolver.sol";

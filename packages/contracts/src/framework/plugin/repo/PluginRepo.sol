@@ -2,11 +2,11 @@
 
 pragma solidity ^0.8.8;
 
-import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import {ERC165Upgradeable} from "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165Upgradeable.sol";
-import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import {AddressUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol";
-import {ERC165CheckerUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/introspection/ERC165CheckerUpgradeable.sol";
+import {Initializable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/Initializable.sol";
+import {ERC165Upgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/master/contracts/utils/introspection/ERC165Upgradeable.sol";
+import {UUPSUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/UUPSUpgradeable.sol";
+import {AddressUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/AddressUpgradeable.sol";
+import {ERC165CheckerUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/ERC165CheckerUpgradeable.sol";
 
 import {IProtocolVersion} from "../../../utils/protocol/IProtocolVersion.sol";
 import {ProtocolVersion} from "../../../utils/protocol/ProtocolVersion.sol";
