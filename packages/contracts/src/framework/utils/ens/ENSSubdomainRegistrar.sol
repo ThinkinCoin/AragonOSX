@@ -6,7 +6,7 @@ import "https://raw.githubusercontent.com/ensdomains/ens-contracts/v0.0.19/contr
 import "https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/Resolver.sol";
 
 import {ProtocolVersion} from "../../../utils/protocol/ProtocolVersion.sol";
-import {UUPSUpgradeable} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/proxy/utils/UUPSUpgradeable.sol";
+import {UUPSUpgradeable} from "../../../../../proxy/utils/UUPSUpgradeable.sol";
 import {DaoAuthorizableUpgradeable} from "../../../core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol";
 import {IDAO} from "../../../core/dao/IDAO.sol";
 
