@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/ERC165StorageUpgradeable.sol";
+import "../../utils/introspection/ERC165StorageUpgradeable.sol";
 import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/Initializable.sol";
 import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/UUPSUpgradeable.sol";
 import "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol";
