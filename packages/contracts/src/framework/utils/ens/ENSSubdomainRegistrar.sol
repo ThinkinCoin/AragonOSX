@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.8;
 
-import "https://raw.githubusercontent.com/ensdomains/ens-contracts/v0.0.19/contracts/registry/ENS.sol";
-import "https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/Resolver.sol";
+import "../../../../registry/ENS.sol";
+import "../../../../resolvers/Resolver.sol";
 
 import {ProtocolVersion} from "../../../utils/protocol/ProtocolVersion.sol";
 import {UUPSUpgradeable} from "../../../../../proxy/utils/UUPSUpgradeable.sol";
