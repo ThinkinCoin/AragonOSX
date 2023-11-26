@@ -49,5 +49,11 @@
     "chainId": 84531,
     "deploy": ["./deploy/new", "./deploy/verification"],
     "gasPrice": 1000000
+  },
+  "harmony": {
+    "url": "https://api.harmony.one",
+    "isTestnet": false,
+    "chainId": 1666600000,
+    "deploy": ["./deploy/new", "./deploy/verification"],
   }
 }
