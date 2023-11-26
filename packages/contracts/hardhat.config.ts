@@ -117,19 +117,7 @@ const config: HardhatUserConfig = {
           browserURL: 'https://goerli.basescan.org',
         },
       },
-      {
-        network: 'harmony',
-        chainId: 1666600000,
-        urls: {
-          apiURL: 'https://api.harmony.one',
-          browserURL: 'https://harmony.one',
-        },
-        etherscan: {
-          apiKey: {
-            harmony: 'your API key'
-          }
-        },
-      },
+      
     ],
   },
   namedAccounts: {
