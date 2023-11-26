@@ -97,6 +97,7 @@ const config: HardhatUserConfig = {
       arbitrumTestnet: process.env.ARBISCAN_KEY || '',
       baseMainnet: process.env.BASESCAN_KEY || '',
       baseGoerli: process.env.BASESCAN_KEY || '',
+      harmony: "your aoi key" || '',
             
     },
     customChains: [
