@@ -11,7 +11,7 @@ import "../../token/ERC721/IERC721ReceiverUpgradeable.sol";
 import "../../token/ERC1155/IERC1155Upgradeable.sol";
 import "../../token/ERC1155/IERC1155ReceiverUpgradeable.sol";
 import "../../utils/AddressUpgradeable.sol";
-import "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/interfaces/IERC1271.sol";
+import "../../interfaces/IERC1271.sol";
 
 import {IProtocolVersion} from "../../utils/protocol/IProtocolVersion.sol";
 import {ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
