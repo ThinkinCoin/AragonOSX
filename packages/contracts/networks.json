@@ -54,6 +54,6 @@
     "url": "https://api.harmony.one",
     "isTestnet": false,
     "chainId": 1666600000,
-    "deploy": ["./deploy/new", "./deploy/verification"],
+    "deploy": ["./deploy/new", "./deploy/verification"]
   }
 }
