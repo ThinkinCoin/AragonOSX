@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {ERC165} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/introspection/ERC165.sol";
+import {ERC165} from "../../../utils/introspection/ERC165.sol";
 
 import {IProtocolVersion} from "../../utils/protocol/IProtocolVersion.sol";
 import {ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
