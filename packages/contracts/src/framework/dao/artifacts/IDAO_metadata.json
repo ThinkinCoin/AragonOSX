@@ -1,0 +1,575 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "_reference",
+						"type": "string"
+					}
+				],
+				"name": "Deposited",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "actor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "callId",
+						"type": "bytes32"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "data",
+								"type": "bytes"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IDAO.Action[]",
+						"name": "actions",
+						"type": "tuple[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "allowFailureMap",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "failureMap",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes[]",
+						"name": "execResults",
+						"type": "bytes[]"
+					}
+				],
+				"name": "Executed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "metadata",
+						"type": "bytes"
+					}
+				],
+				"name": "MetadataSet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "NativeTokenDeposited",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes4",
+						"name": "callbackSelector",
+						"type": "bytes4"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes4",
+						"name": "magicNumber",
+						"type": "bytes4"
+					}
+				],
+				"name": "StandardCallbackRegistered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "forwarder",
+						"type": "address"
+					}
+				],
+				"name": "TrustedForwarderSet",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_reference",
+						"type": "string"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_callId",
+						"type": "bytes32"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "to",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "value",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bytes",
+								"name": "data",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct IDAO.Action[]",
+						"name": "_actions",
+						"type": "tuple[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_allowFailureMap",
+						"type": "uint256"
+					}
+				],
+				"name": "execute",
+				"outputs": [
+					{
+						"internalType": "bytes[]",
+						"name": "",
+						"type": "bytes[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTrustedForwarder",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_where",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_who",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_permissionId",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"name": "hasPermission",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_hash",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_signature",
+						"type": "bytes"
+					}
+				],
+				"name": "isValidSignature",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "_interfaceId",
+						"type": "bytes4"
+					},
+					{
+						"internalType": "bytes4",
+						"name": "_callbackSelector",
+						"type": "bytes4"
+					},
+					{
+						"internalType": "bytes4",
+						"name": "_magicNumber",
+						"type": "bytes4"
+					}
+				],
+				"name": "registerStandardCallback",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_metadata",
+						"type": "bytes"
+					}
+				],
+				"name": "setMetadata",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "setSignatureValidator",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_trustedForwarder",
+						"type": "address"
+					}
+				],
+				"name": "setTrustedForwarder",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aragon Association - 2022-2023",
+			"custom:security-contact": "sirt@aragon.org",
+			"events": {
+				"Deposited(address,address,uint256,string)": {
+					"params": {
+						"_reference": "The reference describing the deposit reason.",
+						"amount": "The amount of tokens deposited.",
+						"sender": "The address of the sender.",
+						"token": "The address of the deposited token."
+					}
+				},
+				"Executed(address,bytes32,(address,uint256,bytes)[],uint256,uint256,bytes[])": {
+					"details": "The value of `callId` is defined by the component/contract calling the execute function. A `Plugin` implementation can use it, for example, as a nonce.",
+					"params": {
+						"actions": "The array of actions executed.",
+						"actor": "The address of the caller.",
+						"allowFailureMap": "The allow failure map encoding which actions are allowed to fail.",
+						"callId": "The ID of the call.",
+						"execResults": "The array with the results of the executed actions.",
+						"failureMap": "The failure map encoding which actions have failed."
+					}
+				},
+				"MetadataSet(bytes)": {
+					"params": {
+						"metadata": "The IPFS hash of the new metadata object."
+					}
+				},
+				"NativeTokenDeposited(address,uint256)": {
+					"details": "This event is intended to be emitted in the `receive` function and is therefore bound by the gas limitations for `send`/`transfer` calls introduced by [ERC-2929](https://eips.ethereum.org/EIPS/eip-2929).",
+					"params": {
+						"amount": "The amount of native tokens deposited.",
+						"sender": "The address of the sender."
+					}
+				},
+				"StandardCallbackRegistered(bytes4,bytes4,bytes4)": {
+					"params": {
+						"callbackSelector": "The selector of the callback function.",
+						"interfaceId": "The ID of the interface.",
+						"magicNumber": "The magic number to be registered for the callback function selector."
+					}
+				},
+				"TrustedForwarderSet(address)": {
+					"params": {
+						"forwarder": "the new forwarder address."
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"deposit(address,uint256,string)": {
+					"params": {
+						"_amount": "The amount of tokens to deposit.",
+						"_reference": "The reference describing the deposit reason.",
+						"_token": "The address of the token or address(0) in case of the native token."
+					}
+				},
+				"execute(bytes32,(address,uint256,bytes)[],uint256)": {
+					"params": {
+						"_actions": "The array of actions.",
+						"_allowFailureMap": "A bitmap allowing execution to succeed, even if individual actions might revert. If the bit at index `i` is 1, the execution succeeds even if the `i`th action reverts. A failure map value of 0 requires every action to not revert.",
+						"_callId": "The ID of the call. The definition of the value of `callId` is up to the calling contract and can be used, e.g., as a nonce."
+					},
+					"returns": {
+						"_0": "The array of results obtained from the executed actions in `bytes`.",
+						"_1": "The resulting failure map containing the actions have actually failed."
+					}
+				},
+				"getTrustedForwarder()": {
+					"returns": {
+						"_0": "The trusted forwarder address."
+					}
+				},
+				"hasPermission(address,address,bytes32,bytes)": {
+					"params": {
+						"_data": "The optional data passed to the `PermissionCondition` registered.",
+						"_permissionId": "The permission identifier.",
+						"_where": "The address of the contract.",
+						"_who": "The address of a EOA or contract to give the permissions."
+					},
+					"returns": {
+						"_0": "Returns true if the address has permission, false if not."
+					}
+				},
+				"isValidSignature(bytes32,bytes)": {
+					"params": {
+						"_hash": "The hash of the data to be signed.",
+						"_signature": "The signature byte array associated with `_hash`."
+					},
+					"returns": {
+						"_0": "Returns the `bytes4` magic value `0x1626ba7e` if the signature is valid and `0xffffffff` if not."
+					}
+				},
+				"registerStandardCallback(bytes4,bytes4,bytes4)": {
+					"params": {
+						"_callbackSelector": "The selector of the callback function.",
+						"_interfaceId": "The ID of the interface.",
+						"_magicNumber": "The magic number to be registered for the function signature."
+					}
+				},
+				"setMetadata(bytes)": {
+					"params": {
+						"_metadata": "The IPFS hash of the new metadata object."
+					}
+				},
+				"setSignatureValidator(address)": {
+					"details": "Introduced in v1.0.0. Removed in v1.4.0."
+				},
+				"setTrustedForwarder(address)": {
+					"params": {
+						"_trustedForwarder": "The trusted forwarder address."
+					}
+				}
+			},
+			"title": "IDAO",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"Deposited(address,address,uint256,string)": {
+					"notice": "Emitted when a token deposit has been made to the DAO."
+				},
+				"Executed(address,bytes32,(address,uint256,bytes)[],uint256,uint256,bytes[])": {
+					"notice": "Emitted when a proposal is executed."
+				},
+				"MetadataSet(bytes)": {
+					"notice": "Emitted when the DAO metadata is updated."
+				},
+				"NativeTokenDeposited(address,uint256)": {
+					"notice": "Emitted when a native token deposit has been made to the DAO."
+				},
+				"StandardCallbackRegistered(bytes4,bytes4,bytes4)": {
+					"notice": "Emitted when a standard callback is registered."
+				},
+				"TrustedForwarderSet(address)": {
+					"notice": "Emitted when a new TrustedForwarder is set on the DAO."
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"deposit(address,uint256,string)": {
+					"notice": "Deposits (native) tokens to the DAO contract with a reference string."
+				},
+				"execute(bytes32,(address,uint256,bytes)[],uint256)": {
+					"notice": "Executes a list of actions. If a zero allow-failure map is provided, a failing action reverts the entire execution. If a non-zero allow-failure map is provided, allowed actions can fail without the entire call being reverted."
+				},
+				"getTrustedForwarder()": {
+					"notice": "Getter for the trusted forwarder verifying the meta transaction."
+				},
+				"hasPermission(address,address,bytes32,bytes)": {
+					"notice": "Checks if an address has permission on a contract via a permission identifier and considers if `ANY_ADDRESS` was used in the granting process."
+				},
+				"isValidSignature(bytes32,bytes)": {
+					"notice": "Checks whether a signature is valid for a provided hash according to [ERC-1271](https://eips.ethereum.org/EIPS/eip-1271)."
+				},
+				"registerStandardCallback(bytes4,bytes4,bytes4)": {
+					"notice": "Registers an ERC standard having a callback by registering its [ERC-165](https://eips.ethereum.org/EIPS/eip-165) interface ID and callback function signature."
+				},
+				"setMetadata(bytes)": {
+					"notice": "Updates the DAO metadata (e.g., an IPFS hash)."
+				},
+				"setSignatureValidator(address)": {
+					"notice": "Removed function being left here to not corrupt the IDAO interface ID. Any call will revert."
+				},
+				"setTrustedForwarder(address)": {
+					"notice": "Setter for the trusted forwarder verifying the meta transaction."
+				}
+			},
+			"notice": "The interface required for DAOs within the Aragon App DAO framework.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/src/framework/dao/DAORegistry_flattened.sol": "IDAO"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"packages/contracts/src/framework/dao/DAORegistry_flattened.sol": {
+			"keccak256": "0x4d1b0a9339acef72c2da147729f4e9f3e0f0655ae73985f1b07a2f2227d0855c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e9b3fc9f9f8e2815bedcec4b724f496fd7e534228c3e28eeef906b473e544e30",
+				"dweb:/ipfs/QmRLNYe4D3yEm77dYpNhx36UcCWW3k142kbozcJBzf2Gpf"
+			]
+		}
+	},
+	"version": 1
+}

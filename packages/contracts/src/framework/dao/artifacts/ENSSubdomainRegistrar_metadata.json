@@ -1,0 +1,552 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					}
+				],
+				"name": "AddressEmptyCode",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "subnode",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "nodeOwner",
+						"type": "address"
+					}
+				],
+				"name": "AlreadyRegistered",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "where",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "who",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "permissionId",
+						"type": "bytes32"
+					}
+				],
+				"name": "DaoUnauthorized",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "ERC1967InvalidImplementation",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ERC1967NonPayable",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "FailedInnerCall",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidInitialization",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "resolver",
+						"type": "address"
+					}
+				],
+				"name": "InvalidResolver",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotInitializing",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "UUPSUnauthorizedCallContext",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "slot",
+						"type": "bytes32"
+					}
+				],
+				"name": "UUPSUnsupportedProxiableUUID",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "version",
+						"type": "uint64"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "Upgraded",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "REGISTER_ENS_SUBDOMAIN_PERMISSION_ID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "UPGRADE_INTERFACE_VERSION",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "UPGRADE_REGISTRAR_PERMISSION_ID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dao",
+				"outputs": [
+					{
+						"internalType": "contract IDAO",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ens",
+				"outputs": [
+					{
+						"internalType": "contract ENS",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IDAO",
+						"name": "_managingDao",
+						"type": "address"
+					},
+					{
+						"internalType": "contract ENS",
+						"name": "_ens",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_node",
+						"type": "bytes32"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "node",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "protocolVersion",
+				"outputs": [
+					{
+						"internalType": "uint8[3]",
+						"name": "",
+						"type": "uint8[3]"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "proxiableUUID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_label",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "_targetAddress",
+						"type": "address"
+					}
+				],
+				"name": "registerSubnode",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "resolver",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_resolver",
+						"type": "address"
+					}
+				],
+				"name": "setDefaultResolver",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "upgradeToAndCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aragon Association - 2022-2023",
+			"custom:security-contact": "sirt@aragon.org",
+			"errors": {
+				"AddressEmptyCode(address)": [
+					{
+						"details": "There's no code at `target` (it is not a contract)."
+					}
+				],
+				"AlreadyRegistered(bytes32,address)": [
+					{
+						"params": {
+							"nodeOwner": "The node owner address.",
+							"subnode": "The subnode namehash."
+						}
+					}
+				],
+				"DaoUnauthorized(address,address,address,bytes32)": [
+					{
+						"params": {
+							"dao": "The associated DAO.",
+							"permissionId": "The permission identifier.",
+							"where": "The context in which the authorization reverted.",
+							"who": "The address (EOA or contract) missing the permission."
+						}
+					}
+				],
+				"ERC1967InvalidImplementation(address)": [
+					{
+						"details": "The `implementation` of the proxy is invalid."
+					}
+				],
+				"ERC1967NonPayable()": [
+					{
+						"details": "An upgrade function sees `msg.value > 0` that may be lost."
+					}
+				],
+				"FailedInnerCall()": [
+					{
+						"details": "A call to an address target failed. The target may have reverted."
+					}
+				],
+				"InvalidInitialization()": [
+					{
+						"details": "The contract is already initialized."
+					}
+				],
+				"InvalidResolver(bytes32,address)": [
+					{
+						"params": {
+							"node": "The node namehash.",
+							"resolver": "The node resolver address."
+						}
+					}
+				],
+				"NotInitializing()": [
+					{
+						"details": "The contract is not initializing."
+					}
+				],
+				"UUPSUnauthorizedCallContext()": [
+					{
+						"details": "The call is from an unauthorized context."
+					}
+				],
+				"UUPSUnsupportedProxiableUUID(bytes32)": [
+					{
+						"details": "The storage `slot` is unsupported as a UUID."
+					}
+				]
+			},
+			"events": {
+				"Initialized(uint64)": {
+					"details": "Triggered when the contract has been initialized or reinitialized."
+				},
+				"Upgraded(address)": {
+					"details": "Emitted when the implementation is upgraded."
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"custom:oz-upgrades-unsafe-allow": "constructor",
+					"details": "Used to disallow initializing the implementation contract by an attacker for extra safety."
+				},
+				"dao()": {
+					"returns": {
+						"_0": "The DAO contract."
+					}
+				},
+				"initialize(address,address,bytes32)": {
+					"params": {
+						"_ens": "The interface of the ENS registry to be used.",
+						"_managingDao": "The interface of the DAO managing the components permissions.",
+						"_node": "The ENS parent domain node under which the subdomains are to be registered."
+					}
+				},
+				"protocolVersion()": {
+					"details": "This version number is not to be confused with the `release` and `build` numbers found in the `Version.Tag` struct inside the `PluginRepo` contract being used to version plugin setup and associated plugin implementation contracts.",
+					"returns": {
+						"_0": "Returns the semantic Aragon OSx protocol version number."
+					}
+				},
+				"proxiableUUID()": {
+					"details": "Implementation of the ERC1822 {proxiableUUID} function. This returns the storage slot used by the implementation. It is used to validate the implementation's compatibility when performing an upgrade. IMPORTANT: A proxy pointing at a proxiable contract should not be considered proxiable itself, because this risks bricking a proxy that upgrades to it, by delegating to itself until out of gas. Thus it is critical that this function revert if invoked through a proxy. This is guaranteed by the `notDelegated` modifier."
+				},
+				"registerSubnode(bytes32,address)": {
+					"details": "It reverts with no message if this contract isn't the owner nor an approved operator for the given node.",
+					"params": {
+						"_label": "The labelhash of the subdomain name.",
+						"_targetAddress": "The address to which the subdomain resolves."
+					}
+				},
+				"setDefaultResolver(address)": {
+					"params": {
+						"_resolver": "The resolver contract to be used."
+					}
+				},
+				"upgradeToAndCall(address,bytes)": {
+					"custom:oz-upgrades-unsafe-allow-reachable": "delegatecall",
+					"details": "Upgrade the implementation of the proxy to `newImplementation`, and subsequently execute the function call encoded in `data`. Calls {_authorizeUpgrade}. Emits an {Upgraded} event."
+				}
+			},
+			"title": "ENSSubdomainRegistrar",
+			"version": 1
+		},
+		"userdoc": {
+			"errors": {
+				"AlreadyRegistered(bytes32,address)": [
+					{
+						"notice": "Thrown if the subnode is already registered."
+					}
+				],
+				"DaoUnauthorized(address,address,address,bytes32)": [
+					{
+						"notice": "Thrown if a call is unauthorized in the associated DAO."
+					}
+				],
+				"InvalidResolver(bytes32,address)": [
+					{
+						"notice": "Thrown if node's resolver is invalid."
+					}
+				]
+			},
+			"kind": "user",
+			"methods": {
+				"REGISTER_ENS_SUBDOMAIN_PERMISSION_ID()": {
+					"notice": "The ID of the permission required to call the `registerSubnode` and `setDefaultResolver` function."
+				},
+				"UPGRADE_REGISTRAR_PERMISSION_ID()": {
+					"notice": "The ID of the permission required to call the `_authorizeUpgrade` function."
+				},
+				"dao()": {
+					"notice": "Returns the DAO contract."
+				},
+				"ens()": {
+					"notice": "The ENS registry contract"
+				},
+				"initialize(address,address,bytes32)": {
+					"notice": "Initializes the component by - checking that the contract is the domain node owner or an approved operator - initializing the underlying component - registering the [ERC-165](https://eips.ethereum.org/EIPS/eip-165) interface ID - setting the ENS contract, the domain node hash, and resolver."
+				},
+				"node()": {
+					"notice": "The namehash of the domain on which subdomains are registered."
+				},
+				"protocolVersion()": {
+					"notice": "Returns the semantic Aragon OSx protocol version number that the implementing contract is associated with."
+				},
+				"registerSubnode(bytes32,address)": {
+					"notice": "Registers a new subdomain with this registrar as the owner and set the target address in the resolver."
+				},
+				"resolver()": {
+					"notice": "The address of the ENS resolver resolving the names to an address."
+				},
+				"setDefaultResolver(address)": {
+					"notice": "Sets the default resolver contract address that the subdomains being registered will use."
+				}
+			},
+			"notice": "This contract registers ENS subdomains under a parent domain specified in the initialization process and maintains ownership of the subdomain since only the resolver address is set. This contract must either be the domain node owner or an approved operator of the node owner. The default resolver being used is the one specified in the parent domain.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/src/framework/dao/DAORegistry_flattened.sol": "ENSSubdomainRegistrar"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"packages/contracts/src/framework/dao/DAORegistry_flattened.sol": {
+			"keccak256": "0x4d1b0a9339acef72c2da147729f4e9f3e0f0655ae73985f1b07a2f2227d0855c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e9b3fc9f9f8e2815bedcec4b724f496fd7e534228c3e28eeef906b473e544e30",
+				"dweb:/ipfs/QmRLNYe4D3yEm77dYpNhx36UcCWW3k142kbozcJBzf2Gpf"
+			]
+		}
+	},
+	"version": 1
+}

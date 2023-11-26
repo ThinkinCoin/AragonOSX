@@ -1,0 +1,74 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "protocolVersion",
+				"outputs": [
+					{
+						"internalType": "uint8[3]",
+						"name": "_version",
+						"type": "uint8[3]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aragon Association - 2022-2023",
+			"custom:security-contact": "sirt@aragon.org",
+			"kind": "dev",
+			"methods": {
+				"protocolVersion()": {
+					"details": "This version number is not to be confused with the `release` and `build` numbers found in the `Version.Tag` struct inside the `PluginRepo` contract being used to version plugin setup and associated plugin implementation contracts.",
+					"returns": {
+						"_version": "Returns the semantic Aragon OSx protocol version number."
+					}
+				}
+			},
+			"title": "IProtocolVersion",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"protocolVersion()": {
+					"notice": "Returns the semantic Aragon OSx protocol version number that the implementing contract is associated with."
+				}
+			},
+			"notice": "An interface defining the semantic Aragon OSx protocol version number.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/src/utils/protocol/IProtocolVersion.sol": "IProtocolVersion"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"packages/contracts/src/utils/protocol/IProtocolVersion.sol": {
+			"keccak256": "0xd8fc65ec43ce98d036777a945bb3aec34fa96102cb07cc3e347b433e7550d879",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://4f19eb36baedd257e7762902894f447636f51d4df882fafc80b8e111a7d7fa9a",
+				"dweb:/ipfs/QmPB8wKS6eEJfn7Zn78KNpMwAdDgjSxjrodbfHMdjHNZYv"
+			]
+		}
+	},
+	"version": 1
+}

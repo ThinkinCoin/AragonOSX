@@ -1,0 +1,54 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"details": "This abstract contract provides a fallback function that delegates all calls to another contract using the EVM instruction `delegatecall`. We refer to the second contract as the _implementation_ behind the proxy, and it has to be specified by overriding the virtual {_implementation} function. Additionally, delegation to the implementation can be triggered manually through the {_fallback} function, or to a different contract through the {_delegate} function. The success and return data of the delegated call will be returned back to the caller of the proxy.",
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/DAORegistry.sol": "Proxy"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"packages/contracts/DAORegistry.sol": {
+			"keccak256": "0xc73d38cdf2c90c3e5f71c7fffe8d1966fd6d85459a73331b01cac6b2bb0c7f8b",
+			"urls": [
+				"bzz-raw://9c7fb5bc4d9cddfe00fdf2eeddcd0a29b30d2409b712f099c9a21d0e565a46ce",
+				"dweb:/ipfs/Qmc8zPjtZxMcknYWCFivUKXfrG9nDLda4mXsvmXkUPLBnV"
+			]
+		}
+	},
+	"version": 1
+}

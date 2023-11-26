@@ -1,0 +1,2305 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "contract PluginRepoRegistry",
+						"name": "_repoRegistry",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "plugin",
+						"type": "address"
+					}
+				],
+				"name": "IPluginNotSupported",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "currentAppliedSetupId",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "appliedSetupId",
+						"type": "bytes32"
+					}
+				],
+				"name": "InvalidAppliedSetupId",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint8",
+								"name": "release",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint16",
+								"name": "build",
+								"type": "uint16"
+							}
+						],
+						"internalType": "struct PluginRepo.Tag",
+						"name": "currentVersionTag",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint8",
+								"name": "release",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint16",
+								"name": "build",
+								"type": "uint16"
+							}
+						],
+						"internalType": "struct PluginRepo.Tag",
+						"name": "newVersionTag",
+						"type": "tuple"
+					}
+				],
+				"name": "InvalidUpdateVersion",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "PluginAlreadyInstalled",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "plugin",
+						"type": "address"
+					}
+				],
+				"name": "PluginNonupgradeable",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "proxy",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "initData",
+						"type": "bytes"
+					}
+				],
+				"name": "PluginProxyUpgradeFailed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "PluginRepoNonexistent",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "preparedSetupId",
+						"type": "bytes32"
+					}
+				],
+				"name": "SetupAlreadyPrepared",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "caller",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "permissionId",
+						"type": "bytes32"
+					}
+				],
+				"name": "SetupApplicationUnauthorized",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "preparedSetupId",
+						"type": "bytes32"
+					}
+				],
+				"name": "SetupNotApplicable",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "plugin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "preparedSetupId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "appliedSetupId",
+						"type": "bytes32"
+					}
+				],
+				"name": "InstallationApplied",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "preparedSetupId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "contract PluginRepo",
+						"name": "pluginSetupRepo",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint8",
+								"name": "release",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint16",
+								"name": "build",
+								"type": "uint16"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct PluginRepo.Tag",
+						"name": "versionTag",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "plugin",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address[]",
+								"name": "helpers",
+								"type": "address[]"
+							},
+							{
+								"components": [
+									{
+										"internalType": "enum PermissionLib.Operation",
+										"name": "operation",
+										"type": "uint8"
+									},
+									{
+										"internalType": "address",
+										"name": "where",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "who",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "condition",
+										"type": "address"
+									},
+									{
+										"internalType": "bytes32",
+										"name": "permissionId",
+										"type": "bytes32"
+									}
+								],
+								"internalType": "struct PermissionLib.MultiTargetPermission[]",
+								"name": "permissions",
+								"type": "tuple[]"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IPluginSetup.PreparedSetupData",
+						"name": "preparedSetupData",
+						"type": "tuple"
+					}
+				],
+				"name": "InstallationPrepared",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "plugin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "preparedSetupId",
+						"type": "bytes32"
+					}
+				],
+				"name": "UninstallationApplied",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "preparedSetupId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "contract PluginRepo",
+						"name": "pluginSetupRepo",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint8",
+								"name": "release",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint16",
+								"name": "build",
+								"type": "uint16"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct PluginRepo.Tag",
+						"name": "versionTag",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "plugin",
+								"type": "address"
+							},
+							{
+								"internalType": "address[]",
+								"name": "currentHelpers",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bytes",
+								"name": "data",
+								"type": "bytes"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IPluginSetup.SetupPayload",
+						"name": "setupPayload",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "enum PermissionLib.Operation",
+								"name": "operation",
+								"type": "uint8"
+							},
+							{
+								"internalType": "address",
+								"name": "where",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "who",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "condition",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "permissionId",
+								"type": "bytes32"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct PermissionLib.MultiTargetPermission[]",
+						"name": "permissions",
+						"type": "tuple[]"
+					}
+				],
+				"name": "UninstallationPrepared",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "plugin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "preparedSetupId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "appliedSetupId",
+						"type": "bytes32"
+					}
+				],
+				"name": "UpdateApplied",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes32",
+						"name": "preparedSetupId",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "contract PluginRepo",
+						"name": "pluginSetupRepo",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint8",
+								"name": "release",
+								"type": "uint8"
+							},
+							{
+								"internalType": "uint16",
+								"name": "build",
+								"type": "uint16"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct PluginRepo.Tag",
+						"name": "versionTag",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "plugin",
+								"type": "address"
+							},
+							{
+								"internalType": "address[]",
+								"name": "currentHelpers",
+								"type": "address[]"
+							},
+							{
+								"internalType": "bytes",
+								"name": "data",
+								"type": "bytes"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IPluginSetup.SetupPayload",
+						"name": "setupPayload",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address[]",
+								"name": "helpers",
+								"type": "address[]"
+							},
+							{
+								"components": [
+									{
+										"internalType": "enum PermissionLib.Operation",
+										"name": "operation",
+										"type": "uint8"
+									},
+									{
+										"internalType": "address",
+										"name": "where",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "who",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "condition",
+										"type": "address"
+									},
+									{
+										"internalType": "bytes32",
+										"name": "permissionId",
+										"type": "bytes32"
+									}
+								],
+								"internalType": "struct PermissionLib.MultiTargetPermission[]",
+								"name": "permissions",
+								"type": "tuple[]"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct IPluginSetup.PreparedSetupData",
+						"name": "preparedSetupData",
+						"type": "tuple"
+					},
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "initData",
+						"type": "bytes"
+					}
+				],
+				"name": "UpdatePrepared",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "APPLY_INSTALLATION_PERMISSION_ID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "APPLY_UNINSTALLATION_PERMISSION_ID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "APPLY_UPDATE_PERMISSION_ID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_dao",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"components": [
+											{
+												"internalType": "uint8",
+												"name": "release",
+												"type": "uint8"
+											},
+											{
+												"internalType": "uint16",
+												"name": "build",
+												"type": "uint16"
+											}
+										],
+										"internalType": "struct PluginRepo.Tag",
+										"name": "versionTag",
+										"type": "tuple"
+									},
+									{
+										"internalType": "contract PluginRepo",
+										"name": "pluginSetupRepo",
+										"type": "address"
+									}
+								],
+								"internalType": "struct PluginSetupRef",
+								"name": "pluginSetupRef",
+								"type": "tuple"
+							},
+							{
+								"internalType": "address",
+								"name": "plugin",
+								"type": "address"
+							},
+							{
+								"components": [
+									{
+										"internalType": "enum PermissionLib.Operation",
+										"name": "operation",
+										"type": "uint8"
+									},
+									{
+										"internalType": "address",
+										"name": "where",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "who",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "condition",
+										"type": "address"
+									},
+									{
+										"internalType": "bytes32",
+										"name": "permissionId",
+										"type": "bytes32"
+									}
+								],
+								"internalType": "struct PermissionLib.MultiTargetPermission[]",
+								"name": "permissions",
+								"type": "tuple[]"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "helpersHash",
+								"type": "bytes32"
+							}
+						],
+						"internalType": "struct PluginSetupProcessor.ApplyInstallationParams",
+						"name": "_params",
+						"type": "tuple"
+					}
+				],
+				"name": "applyInstallation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_dao",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "plugin",
+								"type": "address"
+							},
+							{
+								"components": [
+									{
+										"components": [
+											{
+												"internalType": "uint8",
+												"name": "release",
+												"type": "uint8"
+											},
+											{
+												"internalType": "uint16",
+												"name": "build",
+												"type": "uint16"
+											}
+										],
+										"internalType": "struct PluginRepo.Tag",
+										"name": "versionTag",
+										"type": "tuple"
+									},
+									{
+										"internalType": "contract PluginRepo",
+										"name": "pluginSetupRepo",
+										"type": "address"
+									}
+								],
+								"internalType": "struct PluginSetupRef",
+								"name": "pluginSetupRef",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "enum PermissionLib.Operation",
+										"name": "operation",
+										"type": "uint8"
+									},
+									{
+										"internalType": "address",
+										"name": "where",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "who",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "condition",
+										"type": "address"
+									},
+									{
+										"internalType": "bytes32",
+										"name": "permissionId",
+										"type": "bytes32"
+									}
+								],
+								"internalType": "struct PermissionLib.MultiTargetPermission[]",
+								"name": "permissions",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct PluginSetupProcessor.ApplyUninstallationParams",
+						"name": "_params",
+						"type": "tuple"
+					}
+				],
+				"name": "applyUninstallation",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_dao",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "plugin",
+								"type": "address"
+							},
+							{
+								"components": [
+									{
+										"components": [
+											{
+												"internalType": "uint8",
+												"name": "release",
+												"type": "uint8"
+											},
+											{
+												"internalType": "uint16",
+												"name": "build",
+												"type": "uint16"
+											}
+										],
+										"internalType": "struct PluginRepo.Tag",
+										"name": "versionTag",
+										"type": "tuple"
+									},
+									{
+										"internalType": "contract PluginRepo",
+										"name": "pluginSetupRepo",
+										"type": "address"
+									}
+								],
+								"internalType": "struct PluginSetupRef",
+								"name": "pluginSetupRef",
+								"type": "tuple"
+							},
+							{
+								"internalType": "bytes",
+								"name": "initData",
+								"type": "bytes"
+							},
+							{
+								"components": [
+									{
+										"internalType": "enum PermissionLib.Operation",
+										"name": "operation",
+										"type": "uint8"
+									},
+									{
+										"internalType": "address",
+										"name": "where",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "who",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "condition",
+										"type": "address"
+									},
+									{
+										"internalType": "bytes32",
+										"name": "permissionId",
+										"type": "bytes32"
+									}
+								],
+								"internalType": "struct PermissionLib.MultiTargetPermission[]",
+								"name": "permissions",
+								"type": "tuple[]"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "helpersHash",
+								"type": "bytes32"
+							}
+						],
+						"internalType": "struct PluginSetupProcessor.ApplyUpdateParams",
+						"name": "_params",
+						"type": "tuple"
+					}
+				],
+				"name": "applyUpdate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_dao",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"components": [
+											{
+												"internalType": "uint8",
+												"name": "release",
+												"type": "uint8"
+											},
+											{
+												"internalType": "uint16",
+												"name": "build",
+												"type": "uint16"
+											}
+										],
+										"internalType": "struct PluginRepo.Tag",
+										"name": "versionTag",
+										"type": "tuple"
+									},
+									{
+										"internalType": "contract PluginRepo",
+										"name": "pluginSetupRepo",
+										"type": "address"
+									}
+								],
+								"internalType": "struct PluginSetupRef",
+								"name": "pluginSetupRef",
+								"type": "tuple"
+							},
+							{
+								"internalType": "bytes",
+								"name": "data",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct PluginSetupProcessor.PrepareInstallationParams",
+						"name": "_params",
+						"type": "tuple"
+					}
+				],
+				"name": "prepareInstallation",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "plugin",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address[]",
+								"name": "helpers",
+								"type": "address[]"
+							},
+							{
+								"components": [
+									{
+										"internalType": "enum PermissionLib.Operation",
+										"name": "operation",
+										"type": "uint8"
+									},
+									{
+										"internalType": "address",
+										"name": "where",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "who",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "condition",
+										"type": "address"
+									},
+									{
+										"internalType": "bytes32",
+										"name": "permissionId",
+										"type": "bytes32"
+									}
+								],
+								"internalType": "struct PermissionLib.MultiTargetPermission[]",
+								"name": "permissions",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct IPluginSetup.PreparedSetupData",
+						"name": "preparedSetupData",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_dao",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"components": [
+											{
+												"internalType": "uint8",
+												"name": "release",
+												"type": "uint8"
+											},
+											{
+												"internalType": "uint16",
+												"name": "build",
+												"type": "uint16"
+											}
+										],
+										"internalType": "struct PluginRepo.Tag",
+										"name": "versionTag",
+										"type": "tuple"
+									},
+									{
+										"internalType": "contract PluginRepo",
+										"name": "pluginSetupRepo",
+										"type": "address"
+									}
+								],
+								"internalType": "struct PluginSetupRef",
+								"name": "pluginSetupRef",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "plugin",
+										"type": "address"
+									},
+									{
+										"internalType": "address[]",
+										"name": "currentHelpers",
+										"type": "address[]"
+									},
+									{
+										"internalType": "bytes",
+										"name": "data",
+										"type": "bytes"
+									}
+								],
+								"internalType": "struct IPluginSetup.SetupPayload",
+								"name": "setupPayload",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct PluginSetupProcessor.PrepareUninstallationParams",
+						"name": "_params",
+						"type": "tuple"
+					}
+				],
+				"name": "prepareUninstallation",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "enum PermissionLib.Operation",
+								"name": "operation",
+								"type": "uint8"
+							},
+							{
+								"internalType": "address",
+								"name": "where",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "who",
+								"type": "address"
+							},
+							{
+								"internalType": "address",
+								"name": "condition",
+								"type": "address"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "permissionId",
+								"type": "bytes32"
+							}
+						],
+						"internalType": "struct PermissionLib.MultiTargetPermission[]",
+						"name": "permissions",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_dao",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "uint8",
+										"name": "release",
+										"type": "uint8"
+									},
+									{
+										"internalType": "uint16",
+										"name": "build",
+										"type": "uint16"
+									}
+								],
+								"internalType": "struct PluginRepo.Tag",
+								"name": "currentVersionTag",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "uint8",
+										"name": "release",
+										"type": "uint8"
+									},
+									{
+										"internalType": "uint16",
+										"name": "build",
+										"type": "uint16"
+									}
+								],
+								"internalType": "struct PluginRepo.Tag",
+								"name": "newVersionTag",
+								"type": "tuple"
+							},
+							{
+								"internalType": "contract PluginRepo",
+								"name": "pluginSetupRepo",
+								"type": "address"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "plugin",
+										"type": "address"
+									},
+									{
+										"internalType": "address[]",
+										"name": "currentHelpers",
+										"type": "address[]"
+									},
+									{
+										"internalType": "bytes",
+										"name": "data",
+										"type": "bytes"
+									}
+								],
+								"internalType": "struct IPluginSetup.SetupPayload",
+								"name": "setupPayload",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct PluginSetupProcessor.PrepareUpdateParams",
+						"name": "_params",
+						"type": "tuple"
+					}
+				],
+				"name": "prepareUpdate",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "initData",
+						"type": "bytes"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address[]",
+								"name": "helpers",
+								"type": "address[]"
+							},
+							{
+								"components": [
+									{
+										"internalType": "enum PermissionLib.Operation",
+										"name": "operation",
+										"type": "uint8"
+									},
+									{
+										"internalType": "address",
+										"name": "where",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "who",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "condition",
+										"type": "address"
+									},
+									{
+										"internalType": "bytes32",
+										"name": "permissionId",
+										"type": "bytes32"
+									}
+								],
+								"internalType": "struct PermissionLib.MultiTargetPermission[]",
+								"name": "permissions",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct IPluginSetup.PreparedSetupData",
+						"name": "preparedSetupData",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "protocolVersion",
+				"outputs": [
+					{
+						"internalType": "uint8[3]",
+						"name": "",
+						"type": "uint8[3]"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "repoRegistry",
+				"outputs": [
+					{
+						"internalType": "contract PluginRepoRegistry",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "states",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "blockNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "currentAppliedSetupId",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "pluginInstallationId",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "preparedSetupId",
+						"type": "bytes32"
+					}
+				],
+				"name": "validatePreparedSetupId",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aragon Association - 2022-2023",
+			"custom:security-contact": "sirt@aragon.org",
+			"details": "This contract is temporarily granted the `ROOT_PERMISSION_ID` permission on the applying DAO and therefore is highly security critical.",
+			"errors": {
+				"IPluginNotSupported(address)": [
+					{
+						"params": {
+							"plugin": "The address of the contract."
+						}
+					}
+				],
+				"InvalidAppliedSetupId(bytes32,bytes32)": [
+					{
+						"params": {
+							"appliedSetupId": "The applied setup ID obtained from the data in the supplied setup payload.",
+							"currentAppliedSetupId": "The current applied setup ID with which the data in the supplied payload must match."
+						}
+					}
+				],
+				"InvalidUpdateVersion((uint8,uint16),(uint8,uint16))": [
+					{
+						"params": {
+							"currentVersionTag": "The tag of the current version to update from.",
+							"newVersionTag": "The tag of the new version to update to."
+						}
+					}
+				],
+				"PluginNonupgradeable(address)": [
+					{
+						"params": {
+							"plugin": "The address of the plugin contract."
+						}
+					}
+				],
+				"PluginProxyUpgradeFailed(address,address,bytes)": [
+					{
+						"params": {
+							"implementation": "The address of the implementation contract.",
+							"initData": "The initialization data to be passed to the upgradeable plugin contract via `upgradeToAndCall`.",
+							"proxy": "The address of the proxy."
+						}
+					}
+				],
+				"SetupAlreadyPrepared(bytes32)": [
+					{
+						"params": {
+							"preparedSetupId": "The prepared setup ID."
+						}
+					}
+				],
+				"SetupApplicationUnauthorized(address,address,bytes32)": [
+					{
+						"details": "This is thrown if the `APPLY_INSTALLATION_PERMISSION_ID`, `APPLY_UPDATE_PERMISSION_ID`, or APPLY_UNINSTALLATION_PERMISSION_ID is missing.",
+						"params": {
+							"caller": "The address (EOA or contract) that requested the application of a setup on the associated DAO.",
+							"dao": "The address of the DAO to which the plugin belongs.",
+							"permissionId": "The permission identifier."
+						}
+					}
+				],
+				"SetupNotApplicable(bytes32)": [
+					{
+						"params": {
+							"preparedSetupId": "The prepared setup ID."
+						}
+					}
+				]
+			},
+			"events": {
+				"InstallationApplied(address,address,bytes32,bytes32)": {
+					"params": {
+						"appliedSetupId": "The applied setup ID.",
+						"dao": "The address of the DAO to which the plugin belongs.",
+						"plugin": "The address of the plugin contract.",
+						"preparedSetupId": "The prepared setup ID."
+					}
+				},
+				"InstallationPrepared(address,address,bytes32,address,(uint8,uint16),bytes,address,(address[],(uint8,address,address,address,bytes32)[]))": {
+					"params": {
+						"dao": "The address of the DAO to which the plugin belongs.",
+						"data": "The bytes-encoded data containing the input parameters for the preparation as specified in the corresponding ABI on the version's metadata.",
+						"plugin": "The address of the plugin contract.",
+						"pluginSetupRepo": "The repository storing the `PluginSetup` contracts of all versions of a plugin.",
+						"preparedSetupData": "The deployed plugin's relevant data which consists of helpers and permissions.",
+						"preparedSetupId": "The prepared setup ID obtained from the supplied data.",
+						"sender": "The sender that prepared the plugin installation.",
+						"versionTag": "The version tag of the plugin setup of the prepared installation."
+					}
+				},
+				"UninstallationApplied(address,address,bytes32)": {
+					"params": {
+						"dao": "The address of the DAO to which the plugin belongs.",
+						"plugin": "The address of the plugin contract.",
+						"preparedSetupId": "The prepared setup ID."
+					}
+				},
+				"UninstallationPrepared(address,address,bytes32,address,(uint8,uint16),(address,address[],bytes),(uint8,address,address,address,bytes32)[])": {
+					"params": {
+						"dao": "The address of the DAO to which the plugin belongs.",
+						"permissions": "The list of multi-targeted permission operations to be applied to the installing DAO.",
+						"pluginSetupRepo": "The repository storing the `PluginSetup` contracts of all versions of a plugin.",
+						"preparedSetupId": "The prepared setup ID.",
+						"sender": "The sender that prepared the plugin uninstallation.",
+						"setupPayload": "The payload containing the plugin and helper contract addresses deployed in a preparation step as well as optional data to be consumed by the plugin setup.",
+						"versionTag": "The version tag of the plugin to used for install preparation."
+					}
+				},
+				"UpdateApplied(address,address,bytes32,bytes32)": {
+					"params": {
+						"appliedSetupId": "The applied setup ID.",
+						"dao": "The address of the DAO to which the plugin belongs.",
+						"plugin": "The address of the plugin contract.",
+						"preparedSetupId": "The prepared setup ID."
+					}
+				},
+				"UpdatePrepared(address,address,bytes32,address,(uint8,uint16),(address,address[],bytes),(address[],(uint8,address,address,address,bytes32)[]),bytes)": {
+					"params": {
+						"dao": "The address of the DAO to which the plugin belongs.",
+						"initData": "The initialization data to be passed to the upgradeable plugin contract.",
+						"pluginSetupRepo": "The repository storing the `PluginSetup` contracts of all versions of a plugin.",
+						"preparedSetupData": "The deployed plugin's relevant data which consists of helpers and permissions.",
+						"preparedSetupId": "The prepared setup ID.",
+						"sender": "The sender that prepared the plugin update.",
+						"setupPayload": "The payload containing the plugin and helper contract addresses deployed in a preparation step as well as optional data to be consumed by the plugin setup.",
+						"versionTag": "The version tag of the plugin setup of the prepared update."
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"applyInstallation(address,(((uint8,uint16),address),address,(uint8,address,address,address,bytes32)[],bytes32))": {
+					"params": {
+						"_dao": "The address of the installing DAO.",
+						"_params": "The struct containing the parameters for the `applyInstallation` function."
+					}
+				},
+				"applyUninstallation(address,(address,((uint8,uint16),address),(uint8,address,address,address,bytes32)[]))": {
+					"details": "The list of `_params.setupPayload.currentHelpers` has to be specified in the same order as they were returned from previous setups preparation steps (the latest `prepareInstallation` or `prepareUpdate` step that has happend) on which the uninstallation was prepared for.",
+					"params": {
+						"_dao": "The address of the uninstalling DAO.",
+						"_params": "The struct containing the parameters for the `applyUninstallation` function."
+					}
+				},
+				"applyUpdate(address,(address,((uint8,uint16),address),bytes,(uint8,address,address,address,bytes32)[],bytes32))": {
+					"params": {
+						"_dao": "The address of the updating DAO.",
+						"_params": "The struct containing the parameters for the `applyInstallation` function."
+					}
+				},
+				"constructor": {
+					"params": {
+						"_repoRegistry": "The plugin repo registry contract."
+					}
+				},
+				"prepareInstallation(address,(((uint8,uint16),address),bytes))": {
+					"params": {
+						"_dao": "The address of the installing DAO.",
+						"_params": "The struct containing the parameters for the `prepareInstallation` function."
+					},
+					"returns": {
+						"plugin": "The prepared plugin contract address.",
+						"preparedSetupData": "The data struct containing the array of helper contracts and permissions that the setup has prepared."
+					}
+				},
+				"prepareUninstallation(address,(((uint8,uint16),address),(address,address[],bytes)))": {
+					"details": "The list of `_params.setupPayload.currentHelpers` has to be specified in the same order as they were returned from previous setups preparation steps (the latest `prepareInstallation` or `prepareUpdate` step that has happend) on which the uninstallation was prepared for.",
+					"params": {
+						"_dao": "The address of the uninstalling DAO.",
+						"_params": "The struct containing the parameters for the `prepareUninstallation` function."
+					},
+					"returns": {
+						"permissions": "The list of multi-targeted permission operations to be applied to the uninstalling DAO."
+					}
+				},
+				"prepareUpdate(address,((uint8,uint16),(uint8,uint16),address,(address,address[],bytes)))": {
+					"details": "The list of `_params.setupPayload.currentHelpers` has to be specified in the same order as they were returned from previous setups preparation steps (the latest `prepareInstallation` or `prepareUpdate` step that has happend) on which the update is prepared for.",
+					"params": {
+						"_dao": "The address of the DAO For which preparation of update happens.",
+						"_params": "The struct containing the parameters for the `prepareUpdate` function."
+					},
+					"returns": {
+						"initData": "The initialization data to be passed to upgradeable contracts when the update is applied",
+						"preparedSetupData": "The data struct containing the array of helper contracts and permissions that the setup has prepared."
+					}
+				},
+				"protocolVersion()": {
+					"details": "This version number is not to be confused with the `release` and `build` numbers found in the `Version.Tag` struct inside the `PluginRepo` contract being used to version plugin setup and associated plugin implementation contracts.",
+					"returns": {
+						"_0": "Returns the semantic Aragon OSx protocol version number."
+					}
+				},
+				"validatePreparedSetupId(bytes32,bytes32)": {
+					"details": "If the block number stored in `states[pluginInstallationId].blockNumber` exceeds the one stored in `pluginState.preparedSetupIdToBlockNumber[preparedSetupId]`, the prepared setup with `preparedSetupId` is outdated and not applicable anymore.",
+					"params": {
+						"pluginInstallationId": "The plugin installation ID obtained from the hash of `abi.encode(daoAddress, pluginAddress)`.",
+						"preparedSetupId": "The prepared setup ID to be validated."
+					}
+				}
+			},
+			"stateVariables": {
+				"EMPTY_ARRAY_HASH": {
+					"details": "The hash is computed via `keccak256(abi.encode([]))`."
+				},
+				"ZERO_BYTES_HASH": {
+					"details": "The hash is computed via `keccak256(abi.encode(0))`."
+				},
+				"states": {
+					"details": "This variable is public on purpose to allow future versions to access and migrate the storage."
+				}
+			},
+			"title": "PluginSetupProcessor",
+			"version": 1
+		},
+		"userdoc": {
+			"errors": {
+				"IPluginNotSupported(address)": [
+					{
+						"notice": "Thrown if a contract does not support the `IPlugin` interface."
+					}
+				],
+				"InvalidAppliedSetupId(bytes32,bytes32)": [
+					{
+						"notice": "Thrown if the applied setup ID resulting from the supplied setup payload does not match with the current applied setup ID."
+					}
+				],
+				"InvalidUpdateVersion((uint8,uint16),(uint8,uint16))": [
+					{
+						"notice": "Thrown if the update version is invalid."
+					}
+				],
+				"PluginAlreadyInstalled()": [
+					{
+						"notice": "Thrown if plugin is already installed and one tries to prepare or apply install on it."
+					}
+				],
+				"PluginNonupgradeable(address)": [
+					{
+						"notice": "Thrown if a plugin is not upgradeable."
+					}
+				],
+				"PluginProxyUpgradeFailed(address,address,bytes)": [
+					{
+						"notice": "Thrown if the upgrade of an `UUPSUpgradeable` proxy contract (see [ERC-1822](https://eips.ethereum.org/EIPS/eip-1822)) failed."
+					}
+				],
+				"PluginRepoNonexistent()": [
+					{
+						"notice": "Thrown if a plugin repository does not exist on the plugin repo registry."
+					}
+				],
+				"SetupAlreadyPrepared(bytes32)": [
+					{
+						"notice": "Thrown if a plugin setup was already prepared indicated by the prepared setup ID."
+					}
+				],
+				"SetupApplicationUnauthorized(address,address,bytes32)": [
+					{
+						"notice": "Thrown if a setup is unauthorized and cannot be applied because of a missing permission of the associated DAO."
+					}
+				],
+				"SetupNotApplicable(bytes32)": [
+					{
+						"notice": "Thrown if a prepared setup ID is not eligible to be applied. This can happen if another setup has been already applied or if the setup wasn't prepared in the first place."
+					}
+				]
+			},
+			"events": {
+				"InstallationApplied(address,address,bytes32,bytes32)": {
+					"notice": "Emitted after a plugin installation was applied."
+				},
+				"InstallationPrepared(address,address,bytes32,address,(uint8,uint16),bytes,address,(address[],(uint8,address,address,address,bytes32)[]))": {
+					"notice": "Emitted with a prepared plugin installation to store data relevant for the application step."
+				},
+				"UninstallationApplied(address,address,bytes32)": {
+					"notice": "Emitted after a plugin installation was applied."
+				},
+				"UninstallationPrepared(address,address,bytes32,address,(uint8,uint16),(address,address[],bytes),(uint8,address,address,address,bytes32)[])": {
+					"notice": "Emitted with a prepared plugin uninstallation to store data relevant for the application step."
+				},
+				"UpdateApplied(address,address,bytes32,bytes32)": {
+					"notice": "Emitted after a plugin update was applied."
+				},
+				"UpdatePrepared(address,address,bytes32,address,(uint8,uint16),(address,address[],bytes),(address[],(uint8,address,address,address,bytes32)[]),bytes)": {
+					"notice": "Emitted with a prepared plugin update to store data relevant for the application step."
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"APPLY_INSTALLATION_PERMISSION_ID()": {
+					"notice": "The ID of the permission required to call the `applyInstallation` function."
+				},
+				"APPLY_UNINSTALLATION_PERMISSION_ID()": {
+					"notice": "The ID of the permission required to call the `applyUninstallation` function."
+				},
+				"APPLY_UPDATE_PERMISSION_ID()": {
+					"notice": "The ID of the permission required to call the `applyUpdate` function."
+				},
+				"applyInstallation(address,(((uint8,uint16),address),address,(uint8,address,address,address,bytes32)[],bytes32))": {
+					"notice": "Applies the permissions of a prepared installation to a DAO."
+				},
+				"applyUninstallation(address,(address,((uint8,uint16),address),(uint8,address,address,address,bytes32)[]))": {
+					"notice": "Applies the permissions of a prepared uninstallation to a DAO."
+				},
+				"applyUpdate(address,(address,((uint8,uint16),address),bytes,(uint8,address,address,address,bytes32)[],bytes32))": {
+					"notice": "Applies the permissions of a prepared update of an UUPS upgradeable proxy contract to a DAO."
+				},
+				"constructor": {
+					"notice": "Constructs the plugin setup processor by setting the associated plugin repo registry."
+				},
+				"prepareInstallation(address,(((uint8,uint16),address),bytes))": {
+					"notice": "Prepares the installation of a plugin."
+				},
+				"prepareUninstallation(address,(((uint8,uint16),address),(address,address[],bytes)))": {
+					"notice": "Prepares the uninstallation of a plugin."
+				},
+				"prepareUpdate(address,((uint8,uint16),(uint8,uint16),address,(address,address[],bytes)))": {
+					"notice": "Prepares the update of an UUPS upgradeable plugin."
+				},
+				"protocolVersion()": {
+					"notice": "Returns the semantic Aragon OSx protocol version number that the implementing contract is associated with."
+				},
+				"repoRegistry()": {
+					"notice": "The plugin repo registry listing the `PluginRepo` contracts versioning the `PluginSetup` contracts."
+				},
+				"states(bytes32)": {
+					"notice": "A mapping between the plugin installation ID (obtained from the DAO and plugin address) and the plugin state information."
+				},
+				"validatePreparedSetupId(bytes32,bytes32)": {
+					"notice": "Validates that a setup ID can be applied for `applyInstallation`, `applyUpdate`, or `applyUninstallation`."
+				}
+			},
+			"notice": "This contract processes the preparation and application of plugin setups (installation, update, uninstallation) on behalf of a requesting DAO.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/src/framework/plugin/setup/PluginSetupProcessor.sol": "PluginSetupProcessor"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/v4.9.3/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"https://raw.githubusercontent.com/ensdomains/ens-contracts/v0.0.19/contracts/registry/ENS.sol": {
+			"keccak256": "0x7cb1158c7d268b63de1468e28e2711b28d686e2628ddb22da2149cd93ddeafda",
+			"urls": [
+				"bzz-raw://a7018309acca24b10ea1235b1c27828f29f2ddfabb653a794639baf620dc2314",
+				"dweb:/ipfs/QmakFQT5NFvGs3g8xxwtgtWdddq28Wtm6MjNSpJNhV1YpR"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/interfaces/IERC1967Upgradeable.sol": {
+			"keccak256": "0x47d6e06872b12e72c79d1b5eb55842f860b5fb1207b2317c2358d2766b950a7b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ac55bf6f92fc7b90c6d79d346163a0a02bd5c648c7fede08b20e5da96d4ae2a0",
+				"dweb:/ipfs/QmQoSrHhka35iKDK5iyNt8cuXXS5ANXVPjLhfsJjktB8V9"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/interfaces/draft-IERC1822Upgradeable.sol": {
+			"keccak256": "0x77c89f893e403efc6929ba842b7ccf6534d4ffe03afe31670b4a528c0ad78c0f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://496bd9b3df2455d571018c09f0c6badd29713fdeb907c6aa09d8d28cb603f053",
+				"dweb:/ipfs/QmXdJDyYs6WMwMh21dez2BYPxhSUaUYFMDtVNcn2cgFR79"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol": {
+			"keccak256": "0x584ebdf9c1118a7c773f98788e3f3ede01982bdf8932aa06f5acc7d54876e161",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9826c7edf276ff48b99ee217358393097c30448a71d345d287c2f6961bb1f159",
+				"dweb:/ipfs/QmYXBTY9wDvffGU47yMRFJ1NFyKwpbj94VHzRzhsm6R7Gz"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/beacon/IBeaconUpgradeable.sol": {
+			"keccak256": "0x24b86ac8c005b8c654fbf6ac34a5a4f61580d7273541e83e013e89d66fbf0908",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4dbfe1a3b3b3fb64294ce41fd2ad362e7b7012208117864f42c1a67620a6d5c1",
+				"dweb:/ipfs/QmVMU5tWt7zBQMmf5cpMX8UMHV86T3kFeTxBTBjFqVWfoJ"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/Initializable.sol": {
+			"keccak256": "0x89be10e757d242e9b18d5a32c9fbe2019f6d63052bbe46397a430a1d60d7f794",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f103ee2e4aecd37aac6ceefe670709cdd7613dee25fa2d4d9feaf7fc0aaa155e",
+				"dweb:/ipfs/QmRiNZLoJk5k3HPMYGPGjZFd2ke1ZxjhJZkM45Ec9GH9hv"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/UUPSUpgradeable.sol": {
+			"keccak256": "0xb607cb94c27e89750f5ae2ccebcb94e654e926f6125f4fd4c6262c89875118ad",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://33e8f8d863c6943ea046fcf4972b4e815c04ab06bad195dba1d93f8ebeb8420d",
+				"dweb:/ipfs/QmTQzxQTuuzPDk3eqVmYy7hv2RCXM1yt1NtubXpRbzYjaj"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC1155/IERC1155ReceiverUpgradeable.sol": {
+			"keccak256": "0xffcb29612efb57efc8f0d4897deb5abaeac830022c59a3aa17446d698dbc856b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4a4da6e241d1d8c2ef214c311e02c749f45b5e0dd8168c667bc8ee6f67dcf4ce",
+				"dweb:/ipfs/QmdsKj5frsNS7ZCfJBm4XNfy6MueV9udBF2FiBxVXwxybG"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC1155/IERC1155Upgradeable.sol": {
+			"keccak256": "0xf51f292659a77777c0ed7375a39683d8bee53b86a6e7bd0c76f34ce7aa37a3a8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://32c68498e1b6013477d299e4881dcea818d7e4c3e3aba7a18bde3989b12dff83",
+				"dweb:/ipfs/QmZzw1eHLQmDLfKbxVivEWUdae2BfTmjSg1aLowuLwScuZ"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/IERC20Upgradeable.sol": {
+			"keccak256": "0x0e1f0f5f62f67a881cd1a9597acbc0a5e4071f3c2c10449a183b922ae7272e3f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c25f742ff154998d19a669e2508c3597b363e123ce9144cd0fcf6521229f401f",
+				"dweb:/ipfs/QmQXRuFzStEWqeEPbhQU6cAg9PaSowxJVo4PDKyRod7dco"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/extensions/IERC20PermitUpgradeable.sol": {
+			"keccak256": "0xd60f939a3ca0199014d079b4dd66aa757954334947d81eb5c1d35d7a83061ab3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ce6e5ae4633559c2aad156be884a96f7a9beb8dd31b1b630a6de55972e3af622",
+				"dweb:/ipfs/QmQasz4sQoexkrvB7wCQAY6NbMoCtPS7AqomymRoJGYz85"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/utils/SafeERC20Upgradeable.sol": {
+			"keccak256": "0x23b997be73d3dd46885262704f0f8cfc7273fdadfe303d37969a9561373972b5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d03ebe5406134f0c4a017dee625ff615031194493bd1e88504e5c8fae55bc166",
+				"dweb:/ipfs/QmUZV5bMbgk2PAkV3coouSeSainHN2jhqaQDJaA7hQRyu2"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC721/IERC721ReceiverUpgradeable.sol": {
+			"keccak256": "0xbb2ed8106d94aeae6858e2551a1e7174df73994b77b13ebd120ccaaef80155f5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8bc3c6a456dba727d8dd9fd33420febede490abb49a07469f61d2a3ace66a95a",
+				"dweb:/ipfs/QmVAWtEVj7K5AbvgJa9Dz22KiDq9eoptCjnVZqsTMtKXyd"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/AddressUpgradeable.sol": {
+			"keccak256": "0x9c80f545915582e63fe206c6ce27cbe85a86fc10b9cd2a0e8c9488fb7c2ee422",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://310136ad60820af4177a11a61d77a3686faf5fca4942b600e08fc940db38396b",
+				"dweb:/ipfs/QmbCzMNSTL7Zi7M4UCSqBrkHtp4jjxUnGbkneCZKdR1qeq"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/ContextUpgradeable.sol": {
+			"keccak256": "0x963ea7f0b48b032eef72fe3a7582edf78408d6f834115b9feadd673a4d5bd149",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d6520943ea55fdf5f0bafb39ed909f64de17051bc954ff3e88c9e5621412c79c",
+				"dweb:/ipfs/QmWZ4rAKTQbNG2HxGs46AcTXShsVytKeLs7CUCdCSv5N7a"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/StorageSlotUpgradeable.sol": {
+			"keccak256": "0x07ac95acad040f1fb1f6120dd0aa5f702db69446e95f82613721879d30de0908",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a9df9de7b5da1d1bd3d4b6c073d0174bc4211db60e794a321c8cb5d4eae34685",
+				"dweb:/ipfs/QmWe49zj65jayrCe9jZpoWhYUZ1RiwSxyU2s7SBZnMztVy"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/ERC165CheckerUpgradeable.sol": {
+			"keccak256": "0x94edef8687cf1335a114f7e7267fa92cb0d9e61afde8d62589aceede6c245caf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9dbcc182503f671c6bb7e2c24fe5f13e4c7604389d6cfccd074bc1d9fa7b86df",
+				"dweb:/ipfs/QmdioHDNmTsJx9xMcwBvA7QJhC4MzTmDmWHiWsZpbETLXx"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/ERC165StorageUpgradeable.sol": {
+			"keccak256": "0x8abf30b22b9f34c48c1101400a3172483cfa4fdc5e4de6d040309463e6faee4a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5b8ea6bb70c57d00605104de256ca41f224243d6d3e15857955540c1ae5603f4",
+				"dweb:/ipfs/Qmd2ho9bNaXeJSXQeN5xABYdHz83noBnejHWesbwjA4Bfb"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/ERC165Upgradeable.sol": {
+			"keccak256": "0x9a3b990bd56d139df3e454a9edf1c64668530b5a77fc32eb063bc206f958274a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0895399d170daab2d69b4c43a0202e5a07f2e67a93b26e3354dcbedb062232f7",
+				"dweb:/ipfs/QmUM1VH3XDk559Dsgh4QPvupr3YVKjz87HrSyYzzVFZbxw"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/IERC165Upgradeable.sol": {
+			"keccak256": "0xc6cef87559d0aeffdf0a99803de655938a7779ec0a3cd5d4383483ad85565a09",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://92ad7e572cf44e6b4b37631b44b62f9eb9fb1cf14d9ce51c1504d5dc7ccaf758",
+				"dweb:/ipfs/QmcnbqX85tsWnUXPmtuPLE4SczME2sJaTfmqEFkuAJvWhy"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/Resolver.sol": {
+			"keccak256": "0xb7919ce45b17fae018c501263ef7eb81b3c8e3fa81e99cc91aff719a6daaebe8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2342dac876f5809e1460e9e0ef2560d1f739d35997d1e26c0cb2590927ca8a2f",
+				"dweb:/ipfs/QmbBbLoCBdLxA66yeuT8xDCbPrFJD8HUWGmRW2Wq5k1cBx"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IABIResolver.sol": {
+			"keccak256": "0x85b373d02d19374fe570af407f459768285704bf7f30ab17c30eabfb5a10e4c3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2046ce3d92d29806d7b447f7ab4227f19b0b2e5c75fd5b4a3fcaef7fe2442141",
+				"dweb:/ipfs/QmRgnfWjFetrSJngkhU7Yui1ZcK1MeatvZDpvUTYNuYnND"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IAddrResolver.sol": {
+			"keccak256": "0x2ad7f2fc60ebe0f93745fe70247f6a854f66af732483fda2a3c5e055614445e8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://43922ba183ff20d87dce7fc5d715e626b26594151e36dcc8d7c6329b9a822963",
+				"dweb:/ipfs/QmTg9uHTugTxzqddN68gnhNbGt4bGJBS9mQcss6GYggR4X"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IAddressResolver.sol": {
+			"keccak256": "0x411447c1e90c51e09702815a85ec725ffbbe37cf96e8cc4d2a8bd4ad8a59d73e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://543aa2756447a428711b69aea79e9f4641c22f8330ba920b2a49fde8d9207f82",
+				"dweb:/ipfs/QmTdpcYRWLH3BL7iytnqcSzRojTPe3YettKaTqeCvKPk54"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IContentHashResolver.sol": {
+			"keccak256": "0xd95cd77684ba5752c428d7dceb4ecc6506ac94f4fbb910489637eb68dcd8e366",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://daf1fee7770679bd935b8b5686789a4ecc532caeef5a9b8e1b60ae0c285e743e",
+				"dweb:/ipfs/QmSaHBAqtDdbQLH6QN4EbupMrq2ah8g6fqE7fLX1u4cjMZ"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IDNSRecordResolver.sol": {
+			"keccak256": "0xcfa52200edd337f2c6c5bf402352600584da033b21323603e53de33051a3e25d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2c8355211d58db82660140191678ee342eb8a7ac46fa097ae8e03eef008f592e",
+				"dweb:/ipfs/QmYDNiECPd4fJ7Vk9Xywfpg73rUvDpcYqas95ofGcpt7fM"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IDNSZoneResolver.sol": {
+			"keccak256": "0xca1b3a16e7005533f2800a3e66fcdccf7c574deac7913d8c810f40aec1d58dc0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a4e38d5eb69e236c37e4a013628838070720c9e1923569650b01252868038c7a",
+				"dweb:/ipfs/QmV397iZMRxtem79kJy5sueJadXoVL89gNViX2xciQHUrk"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IExtendedResolver.sol": {
+			"keccak256": "0x5d81521cfae7d9a4475d27533cd8ed0d3475d369eb0674fd90ffbdbdf292faa3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d244d15588785044b54c453ab6dc51c616ab70cb8b9e687d3e54565bcae97760",
+				"dweb:/ipfs/QmXz4ZZBTFogdkdTV1mcE3ywvL2agKVZHLNNeRHCKVruYM"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IInterfaceResolver.sol": {
+			"keccak256": "0x390321fb58f7b927df9562450981e74b4be3907e7c09df321fd3b7409b63ae28",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://045d12c6e0e4596b3672614751a9e75188183a89765a6abd938294e0294e9c56",
+				"dweb:/ipfs/QmazngvagEoKe29s4M9Rv8KygWD5hrAtNPkYDPJ2pK13yx"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/INameResolver.sol": {
+			"keccak256": "0x9ec392b612447b1acbdc01114f2da2837a658d3f3157f60a99c5269f0b623346",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5b2cd9e5339b09f40e82bd91fed7d5f643dd031393eefb9aec588eaba8465049",
+				"dweb:/ipfs/QmT2A8eswhJU9YadCs9BtwKNj6YGypntXmFepANQYyGw7x"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IPubkeyResolver.sol": {
+			"keccak256": "0x69748947093dd2fda9ddcebd0adf19a6d1e7600df1d4b1462a0417156caddca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc2f86e50bd17c38fb10feb577d88d8970c585017a391ef10e3aaa3d50f81555",
+				"dweb:/ipfs/QmaxLx2pqCUxf9W2dusfviZ9aSiTuVwuekGo73rjvmGifE"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/ITextResolver.sol": {
+			"keccak256": "0x7c5debb3c42cd9f5de2274ea7aa053f238608314b62db441c40e31cea2543fd5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://412e34ae2d84d542ffa6791486963f3fe04432a3ffd51877d441256dc2941914",
+				"dweb:/ipfs/QmciS4mGAQ6KJtLiLcBFekHKhYAYMmubDWGkpZ3sUFtJPW"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/interfaces/IERC1271.sol": {
+			"keccak256": "0x0705a4b1b86d7b0bd8432118f226ba139c44b9dcaba0a6eafba2dd7d0639c544",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c45b821ef9e882e57c256697a152e108f0f2ad6997609af8904cae99c9bd422e",
+				"dweb:/ipfs/QmRKCJW6jjzR5UYZcLpGnhEJ75UVbH6EHkEa49sWx2SKng"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/interfaces/IERC1967.sol": {
+			"keccak256": "0x3cbef5ebc24b415252e2f8c0c9254555d30d9f085603b4b80d9b5ed20ab87e90",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e8fa670c3bdce78e642cc6ae11c4cb38b133499cdce5e1990a9979d424703263",
+				"dweb:/ipfs/QmVxeCUk4jL2pXQyhsoNJwyU874wRufS2WvGe8TgPKPqhE"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/interfaces/draft-IERC1822.sol": {
+			"keccak256": "0x1d4afe6cb24200cc4545eed814ecf5847277dfe5d613a1707aad5fceecebcfff",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://383fb7b8181016ac5ccf07bc9cdb7c1b5045ea36e2cc4df52bcbf20396fc7688",
+				"dweb:/ipfs/QmYJ7Cg4WmE3rR8KGQxjUCXFfTH6TcwZ2Z1f6tPrq7jHFr"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/proxy/Clones.sol": {
+			"keccak256": "0x01f055f5c26ba25d7f83e9aa9ba877fbea4d0bf22227de046ea67494bc932999",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e1306add0c9388918d04c45f6acae3551f019ebf8a77e6cc1c0958316ce1c1eb",
+				"dweb:/ipfs/QmR4KHkcfP65RfZtH8TcC7rSdCoWk2Dnog6fhzzjLad8Aa"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/proxy/ERC1967/ERC1967Proxy.sol": {
+			"keccak256": "0xa2b22da3032e50b55f95ec1d13336102d675f341167aa76db571ef7f8bb7975d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://96b6d77a20bebd4eb06b801d3d020c7e82be13bd535cb0d0a6b7181c51dab5d5",
+				"dweb:/ipfs/QmPUR9Cv9jNFdQX6PtBfaBW1ZCnKwiu65R2VD5kbdanDyn"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/proxy/ERC1967/ERC1967Upgrade.sol": {
+			"keccak256": "0x3b21ae06bf5957f73fa16754b0669c77b7abd8ba6c072d35c3281d446fdb86c2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2db8e18505e86e02526847005d7287a33e397ed7fb9eaba3fd4a4a197add16e2",
+				"dweb:/ipfs/QmW9BSuKTzHWHBNSHF4L8XfVuU1uJrP2vLg84YtBd8mL82"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/proxy/Proxy.sol": {
+			"keccak256": "0xc130fe33f1b2132158531a87734153293f6d07bc263ff4ac90e85da9c82c0e27",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8831721b6f4cc26534d190f9f1631c3f59c9ff38efdd911f85e0882b8e360472",
+				"dweb:/ipfs/QmQZnLErZNStirSQ13ZNWQgvEYUtGE5tXYwn4QUPaVUfPN"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/proxy/beacon/IBeacon.sol": {
+			"keccak256": "0xd50a3421ac379ccb1be435fa646d66a65c986b4924f0849839f08692f39dde61",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ada1e030c0231db8d143b44ce92b4d1158eedb087880cad6d8cc7bd7ebe7b354",
+				"dweb:/ipfs/QmWZ2NHZweRpz1U9GF6R1h65ri76dnX7fNxLBeM2t5N5Ce"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/Address.sol": {
+			"keccak256": "0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931",
+				"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/StorageSlot.sol": {
+			"keccak256": "0xf09e68aa0dc6722a25bc46490e8d48ed864466d17313b8a0b254c36b54e49899",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e26daf81e2252dc1fe1ce0e4b55c2eb7c6d1ee84ae6558d1a9554432ea1d32da",
+				"dweb:/ipfs/Qmb1UANWiWq5pCKbmHSu772hd4nt374dVaghGmwSVNuk8Q"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/introspection/ERC165.sol": {
+			"keccak256": "0xd10975de010d89fd1c78dc5e8a9a7e7f496198085c151648f20cba166b32582b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fb0048dee081f6fffa5f74afc3fb328483c2a30504e94a0ddd2a5114d731ec4d",
+				"dweb:/ipfs/QmZptt1nmYoA5SgjwnSgWqgUSDgm4q52Yos3xhnMv3MV43"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/introspection/ERC165Checker.sol": {
+			"keccak256": "0x5a08ad61f4e82b8a3323562661a86fb10b10190848073fdc13d4ac43710ffba5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6f7bb74cf88fd88daa34e118bc6e363381d05044f34f391d39a10c0c9dac3ebd",
+				"dweb:/ipfs/QmNbQ3v8v4zuDtg7VeLAbdhAm3tCzUodNoDZZ8ekmCHWZX"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/interfaces/IERC1967.sol": {
+			"keccak256": "0x3cbef5ebc24b415252e2f8c0c9254555d30d9f085603b4b80d9b5ed20ab87e90",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e8fa670c3bdce78e642cc6ae11c4cb38b133499cdce5e1990a9979d424703263",
+				"dweb:/ipfs/QmVxeCUk4jL2pXQyhsoNJwyU874wRufS2WvGe8TgPKPqhE"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/interfaces/draft-IERC1822.sol": {
+			"keccak256": "0x1d4afe6cb24200cc4545eed814ecf5847277dfe5d613a1707aad5fceecebcfff",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://383fb7b8181016ac5ccf07bc9cdb7c1b5045ea36e2cc4df52bcbf20396fc7688",
+				"dweb:/ipfs/QmYJ7Cg4WmE3rR8KGQxjUCXFfTH6TcwZ2Z1f6tPrq7jHFr"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/proxy/ERC1967/ERC1967Upgrade.sol": {
+			"keccak256": "0x3b21ae06bf5957f73fa16754b0669c77b7abd8ba6c072d35c3281d446fdb86c2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2db8e18505e86e02526847005d7287a33e397ed7fb9eaba3fd4a4a197add16e2",
+				"dweb:/ipfs/QmW9BSuKTzHWHBNSHF4L8XfVuU1uJrP2vLg84YtBd8mL82"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/proxy/beacon/IBeacon.sol": {
+			"keccak256": "0xd50a3421ac379ccb1be435fa646d66a65c986b4924f0849839f08692f39dde61",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ada1e030c0231db8d143b44ce92b4d1158eedb087880cad6d8cc7bd7ebe7b354",
+				"dweb:/ipfs/QmWZ2NHZweRpz1U9GF6R1h65ri76dnX7fNxLBeM2t5N5Ce"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/proxy/utils/UUPSUpgradeable.sol": {
+			"keccak256": "0xc6619957bcc6641fe8984bfaf9ff11a9e4b97d8149c0495f608f9a2416d7c5cf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://543be67f7fa43b1b932637c1c7f12035f0f4b0f7ee2bd3c33841186f79c165c1",
+				"dweb:/ipfs/QmSBPM2UVKbmJqWfD9i6hSiqbaE8TV4TSqfuiivziRRLKM"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/utils/Address.sol": {
+			"keccak256": "0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931",
+				"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/utils/StorageSlot.sol": {
+			"keccak256": "0xf09e68aa0dc6722a25bc46490e8d48ed864466d17313b8a0b254c36b54e49899",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e26daf81e2252dc1fe1ce0e4b55c2eb7c6d1ee84ae6558d1a9554432ea1d32da",
+				"dweb:/ipfs/Qmb1UANWiWq5pCKbmHSu772hd4nt374dVaghGmwSVNuk8Q"
+			]
+		},
+		"packages/contracts/src/core/dao/DAO.sol": {
+			"keccak256": "0x0aedb0054260ab9a36c47cd52a3bfa3bddf71bb8eb4ec81e16fc3ac1da2eeb40",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://61ef56fb34b6eaa137f666714d6af1fee037a5f02b33737f2ff8241e358a38b0",
+				"dweb:/ipfs/QmWsh7jTQS98LWCVs55r3awr3KgMtiU4Ja9YUtUFHRwNiK"
+			]
+		},
+		"packages/contracts/src/core/dao/IDAO.sol": {
+			"keccak256": "0x9d45c336c22ef5b7873b31d9d56944f683219127007426bdfa27df5450e15fc0",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://0a0165610147542743bcdc1f4eb38501312768a394e255e53e1a4b8d374d039b",
+				"dweb:/ipfs/QmfCvVeH6oCs1yUyGwsV6vLF4JtDR2sUL6MVkhQiSvq45R"
+			]
+		},
+		"packages/contracts/src/core/dao/IEIP4824.sol": {
+			"keccak256": "0x3fd5dd3b0407425dce8d109ab9d2fb281a6de1f6d3514a9f475a04bee4472e40",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://93bb7f028005aa44770d8a6cd34c6da996d093a9d21c53efb8014bafa17b35b7",
+				"dweb:/ipfs/QmYZCJZ1PYmEBtZBf2C48M2FRjratPmeYa17qBRogGRzNy"
+			]
+		},
+		"packages/contracts/src/core/permission/IPermissionCondition.sol": {
+			"keccak256": "0x1833693c6b98c3f2ec3c04a8ab5e4572d3691463fd95fe98edaff43c6270ef7b",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://e83e6705600bced1a1efc4ad2a8a4aa53657c47909ffb4f8a42f4bc7bfc42050",
+				"dweb:/ipfs/QmQ2qmuc4ePFQjwRe32XwcNYfLVGWg4mS2fhwz6A9tvDWd"
+			]
+		},
+		"packages/contracts/src/core/permission/PermissionCondition.sol": {
+			"keccak256": "0x683f19e5b4a5898ca72d9afafd174fe03065e7cc8f1fb050f68271dd11fab122",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://61c22b5728c05927393d99257a5a5fc0a07e5f4b8baad38d4eca69c0e9ca0721",
+				"dweb:/ipfs/QmUmBpzi3mVn8jcHg5piB5YaEopH7bH9csqEbot7Q7ivmg"
+			]
+		},
+		"packages/contracts/src/core/permission/PermissionLib.sol": {
+			"keccak256": "0x768b09a4f4c981870791fabda8acfb2d6eb2787cbfb1dd04053565fe8b0e1092",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://be4dfe12c308a1246dba388cde67e8cd25ad4d4d2e1a1e305ab47451a296d24b",
+				"dweb:/ipfs/QmW9V14fFYPKKzZjSp99LqxDZHKDKHK3PEx8A7X2adoMWx"
+			]
+		},
+		"packages/contracts/src/core/permission/PermissionManager.sol": {
+			"keccak256": "0x7d781cfd286ae39c37044c2c978389f1bcd0c8c535b5d51a8efc9c8a4122652a",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://fe87406301531040744512dd2567611ad3c48fd848c059dcffeeeda26faf387e",
+				"dweb:/ipfs/Qmd2fqgDNGFDemZGvNSmE2ri71nkoJ8PVW5PDP8JRM3Fbo"
+			]
+		},
+		"packages/contracts/src/core/plugin/IPlugin.sol": {
+			"keccak256": "0xc353ca9dae59dd3e3421db604f6bce67277f5db91f71077be16a953e971012ca",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://4901f1e8e8a6ef2f2cb9b2e7c24fb8b27cb05ec257bbdcd0e4b8d2017d856297",
+				"dweb:/ipfs/QmXkNHnPK6dFFeEQqmgQw1XJrAFppFXmJX56qeoGwaad2i"
+			]
+		},
+		"packages/contracts/src/core/plugin/PluginUUPSUpgradeable.sol": {
+			"keccak256": "0xfa638136f6e9e50ce927a9d2620613ea2649b5b785bf4e523732d94c94b1ef5b",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://d5dd4784faf8df7011e4e71faa6c0a38e59c5692d265ac1b029332efbbc08662",
+				"dweb:/ipfs/QmNXQgEUDwYa5oCYDDGQ1PCLU85CLULeJtvYPviJk3Lbb6"
+			]
+		},
+		"packages/contracts/src/core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol": {
+			"keccak256": "0x39b73389db9653916ceba024ca2ee4cf290d094c2b6da4175603279960983ebe",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://de141cf0323525da50a63e09c2548d4f6faf55c1c804f5dfa7afc612d376d4aa",
+				"dweb:/ipfs/QmVn9zMpwmE3AQme4gWzD43AzCBzyRjRFzwjPUjyH8KQcA"
+			]
+		},
+		"packages/contracts/src/core/utils/BitMap.sol": {
+			"keccak256": "0x521533f2c8ad2558042e973874eb27822c848222da5064059eb523f79b838ea0",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://34fada29a20d2162ee56f2174f6bcfbaf23b970aad35b063dcb945e720d2924a",
+				"dweb:/ipfs/QmPVkLNuCMsX3vTyToZd6WFqoStenFtKdf5qpvDYgk3Xaw"
+			]
+		},
+		"packages/contracts/src/core/utils/CallbackHandler.sol": {
+			"keccak256": "0x2126cfae35ae74d9d0fc87255dc9b185f2ac3ae5a97b3f64dbab0b37c2d7cef0",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://078dfde9c610c2775ff1d115b0ee58c0d3e3e62b6d96d1d8b82c32a9e91529cf",
+				"dweb:/ipfs/QmQReKV9APePmYAYrKwYshfgBEaZBsG1AYBcSdcYXU2Fwf"
+			]
+		},
+		"packages/contracts/src/core/utils/auth.sol": {
+			"keccak256": "0x214d611471514ee8c3a21de59447101f1cba44090ee078fa2ba758a2ea5016cf",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://c7e51fe2ff30eb754d8ed0a1e4512b35f31d3b7fd1817e277cbfc8721d87fbbf",
+				"dweb:/ipfs/QmdLQ1SW4EjRjXMD4pdtJPTDHeZaieYEN3EeiyaV4dDYRX"
+			]
+		},
+		"packages/contracts/src/framework/plugin/repo/IPluginRepo.sol": {
+			"keccak256": "0x26de92a8479324115a76541175ca1b700d937644529ebd82905d81214455bd8a",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://b2af7752409dbf7f598a9c94a381edb944bc00b185b2214d1f36f024e5314437",
+				"dweb:/ipfs/QmbwyJ8PLm9z2iAhiPMdaxGVfwGnHbGaxqqCfbbFzoVRwZ"
+			]
+		},
+		"packages/contracts/src/framework/plugin/repo/PluginRepo.sol": {
+			"keccak256": "0x0fd7f84efcc70fd332244b1a625472fc022c5259b43e1ed80ba47ed8ee17cd59",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://4cc2e1cf2e19aa95d63e2be78b39a921d691c99d4d4175fe164c452063f20f7c",
+				"dweb:/ipfs/QmZ9s6b4VFhfMn2wTs4XhSZbzUyKSEHCpVeTAuWuN7cDxm"
+			]
+		},
+		"packages/contracts/src/framework/plugin/repo/PluginRepoRegistry.sol": {
+			"keccak256": "0x24344693777c682f3770936df0448ec9e5b5b4a2ffffce1668762650b1ecece0",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://73250ffbaaa20b7b47929ba6a1d88c96f459f8ddbad5636fea2a610cce7b5d57",
+				"dweb:/ipfs/QmYyBeQKxffUQX6XfU5L6AbtDM5vzJ4RWH39XEeLcLRJnM"
+			]
+		},
+		"packages/contracts/src/framework/plugin/setup/IPluginSetup.sol": {
+			"keccak256": "0x7142c50653843dc138e426f9315bfa4019169d3d4ccaabf81440d0beb0241934",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://4233504e7dbb0efbb30f9333a031f947521d21d41a48715dee3831ecb1fa322b",
+				"dweb:/ipfs/QmWDUYBQ8uRSZu5ZQn9SrhcrSnMdQXQF4DNk1HccSpczYD"
+			]
+		},
+		"packages/contracts/src/framework/plugin/setup/PluginSetup.sol": {
+			"keccak256": "0x93fecd28a4ed8ce6e2cde708d335206808b718599f95268942a72b83bba0182b",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://a9cc18290fbc6e9b2e2e4f36e5f769f273c650b43c8c9f05b11e2c38cf48e618",
+				"dweb:/ipfs/QmSSe1enTzB1WfAr9eq68PmzSWE9HsmsLEsyEPYBXQzVoC"
+			]
+		},
+		"packages/contracts/src/framework/plugin/setup/PluginSetupProcessor.sol": {
+			"keccak256": "0xfccb5f634373d9b1da1223c9b2469f41c387f5d69b60c3f854549f144aace138",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://2472ffe5314809de163f48aa7dc1ec7bc311c9b1509889d9d87a73545316f2aa",
+				"dweb:/ipfs/QmUPFd1hP22yH8hyHPq7DhPen8X2iJMbyLhkYs6pDrJF6i"
+			]
+		},
+		"packages/contracts/src/framework/plugin/setup/PluginSetupProcessorHelpers.sol": {
+			"keccak256": "0x2b221ffd42c4b9763788130aa8a30b38c39be13166c80cc1e17323cb6269cb66",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://e8471b0f6d7eec729ba483abcc6ac404f7454b5b3ed0232d70016c01d83f4810",
+				"dweb:/ipfs/QmYnwj5atzisEGAHBQ72C5x6V1vtocZkaGZW7Dh7UWwnX8"
+			]
+		},
+		"packages/contracts/src/framework/utils/InterfaceBasedRegistry.sol": {
+			"keccak256": "0x5760ea1f3c55568c5dbad600f302bbb41a9d1a554915f16abda20252c71b706c",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://c90c8f71d32df5e83949f4745d733de85d5bcce680d19f7df765451adf81035e",
+				"dweb:/ipfs/QmVNdBYuaqgaCGu526K88R9EqU9ERNxGeJ5FmEs2BSFTc4"
+			]
+		},
+		"packages/contracts/src/framework/utils/RegistryUtils.sol": {
+			"keccak256": "0x718a8a2b3b02a1f952e841bc78b806bbebbd5de4cf381feb2822e1c3fafb1070",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://8dd179ac828b7fe125bfbf8984233ca9ddd3fca0b94ad65cd34696ecb89d0219",
+				"dweb:/ipfs/Qmc611VvrtJMjf6eSjGequAV91UkPGEJjQHctKzGbCVB6a"
+			]
+		},
+		"packages/contracts/src/framework/utils/ens/ENSSubdomainRegistrar.sol": {
+			"keccak256": "0x041d159cdf42fba70edba3d9df8ee6e414751efc7175fe1943364bc2b5c2a46a",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://80f06e0b26cfc651edace5be9d9f83dfa25e8aa5117e7250d74922c54e0362e6",
+				"dweb:/ipfs/QmZMxc4tFxoxbSUuz8pTwiFj14M9Z6mChPASXGc36nuX6L"
+			]
+		},
+		"packages/contracts/src/utils/Proxy.sol": {
+			"keccak256": "0x91309796e1542436aedf49cbe173a8e8ead37f3b74a1850125f48f97593fd108",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://2adf7506785bef4888e76ae2e808c878bf3e7da362d6a4c182b94ea7a446983a",
+				"dweb:/ipfs/QmbeXXB1QzHfMcc5DLLf54bKYcbbqg58ASHpafFh4QA9hC"
+			]
+		},
+		"packages/contracts/src/utils/protocol/IProtocolVersion.sol": {
+			"keccak256": "0xd8fc65ec43ce98d036777a945bb3aec34fa96102cb07cc3e347b433e7550d879",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://4f19eb36baedd257e7762902894f447636f51d4df882fafc80b8e111a7d7fa9a",
+				"dweb:/ipfs/QmPB8wKS6eEJfn7Zn78KNpMwAdDgjSxjrodbfHMdjHNZYv"
+			]
+		},
+		"packages/contracts/src/utils/protocol/ProtocolVersion.sol": {
+			"keccak256": "0x53e693a16bda9b3483ce71a5b25a523961930c3f03ec381d9da0be9d37686599",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://48336778e4f2097ff1fb1c4909d2be7a50dd6107f1c31c69aebb41e6162ef0e2",
+				"dweb:/ipfs/QmNTEmpC3arZ5PPq7HX5SRwe9SNL5kLwnmG9zPfUkbi63B"
+			]
+		},
+		"packages/contracts/src/utils/protocol/VersionComparisonLib.sol": {
+			"keccak256": "0x340248bd3509843355412339a7b04ae8c5be37b663720ffde70bb324a4374331",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://aef6210697b46e0cf0c3b652614e09f31fdbb266d479403d2a0e6bd3975227c2",
+				"dweb:/ipfs/QmRCWavmrzNwmWHu5mf7dW1mTGZ79gxuRpKAYSZnLLxmTK"
+			]
+		}
+	},
+	"version": 1
+}

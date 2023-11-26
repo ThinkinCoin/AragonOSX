@@ -1,0 +1,74 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "protocolVersion",
+				"outputs": [
+					{
+						"internalType": "uint8[3]",
+						"name": "_version",
+						"type": "uint8[3]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aragon Association - 2022-2023",
+			"custom:security-contact": "sirt@aragon.org",
+			"kind": "dev",
+			"methods": {
+				"protocolVersion()": {
+					"details": "This version number is not to be confused with the `release` and `build` numbers found in the `Version.Tag` struct inside the `PluginRepo` contract being used to version plugin setup and associated plugin implementation contracts.",
+					"returns": {
+						"_version": "Returns the semantic Aragon OSx protocol version number."
+					}
+				}
+			},
+			"title": "IProtocolVersion",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"protocolVersion()": {
+					"notice": "Returns the semantic Aragon OSx protocol version number that the implementing contract is associated with."
+				}
+			},
+			"notice": "An interface defining the semantic Aragon OSx protocol version number.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/src/framework/dao/DAORegistry_flattened.sol": "IProtocolVersion"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"packages/contracts/src/framework/dao/DAORegistry_flattened.sol": {
+			"keccak256": "0x4d1b0a9339acef72c2da147729f4e9f3e0f0655ae73985f1b07a2f2227d0855c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e9b3fc9f9f8e2815bedcec4b724f496fd7e534228c3e28eeef906b473e544e30",
+				"dweb:/ipfs/QmRLNYe4D3yEm77dYpNhx36UcCWW3k142kbozcJBzf2Gpf"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,424 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "target",
+						"type": "address"
+					}
+				],
+				"name": "AddressEmptyCode",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registrant",
+						"type": "address"
+					}
+				],
+				"name": "ContractAlreadyRegistered",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registrant",
+						"type": "address"
+					}
+				],
+				"name": "ContractERC165SupportInvalid",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registrant",
+						"type": "address"
+					}
+				],
+				"name": "ContractInterfaceInvalid",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "where",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "who",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "permissionId",
+						"type": "bytes32"
+					}
+				],
+				"name": "DaoUnauthorized",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "ERC1967InvalidImplementation",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ERC1967NonPayable",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "FailedInnerCall",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidInitialization",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotInitializing",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "UUPSUnauthorizedCallContext",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "slot",
+						"type": "bytes32"
+					}
+				],
+				"name": "UUPSUnsupportedProxiableUUID",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "version",
+						"type": "uint64"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "Upgraded",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "UPGRADE_INTERFACE_VERSION",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "UPGRADE_REGISTRY_PERMISSION_ID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dao",
+				"outputs": [
+					{
+						"internalType": "contract IDAO",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "entries",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "proxiableUUID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "targetInterfaceId",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "upgradeToAndCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aragon Association - 2022-2023",
+			"custom:security-contact": "sirt@aragon.org",
+			"errors": {
+				"AddressEmptyCode(address)": [
+					{
+						"details": "There's no code at `target` (it is not a contract)."
+					}
+				],
+				"ContractAlreadyRegistered(address)": [
+					{
+						"params": {
+							"registrant": "The address of the contract to be registered."
+						}
+					}
+				],
+				"ContractERC165SupportInvalid(address)": [
+					{
+						"params": {
+							"registrant": "The address of the contract."
+						}
+					}
+				],
+				"ContractInterfaceInvalid(address)": [
+					{
+						"params": {
+							"registrant": "The address of the contract to be registered."
+						}
+					}
+				],
+				"DaoUnauthorized(address,address,address,bytes32)": [
+					{
+						"params": {
+							"dao": "The associated DAO.",
+							"permissionId": "The permission identifier.",
+							"where": "The context in which the authorization reverted.",
+							"who": "The address (EOA or contract) missing the permission."
+						}
+					}
+				],
+				"ERC1967InvalidImplementation(address)": [
+					{
+						"details": "The `implementation` of the proxy is invalid."
+					}
+				],
+				"ERC1967NonPayable()": [
+					{
+						"details": "An upgrade function sees `msg.value > 0` that may be lost."
+					}
+				],
+				"FailedInnerCall()": [
+					{
+						"details": "A call to an address target failed. The target may have reverted."
+					}
+				],
+				"InvalidInitialization()": [
+					{
+						"details": "The contract is already initialized."
+					}
+				],
+				"NotInitializing()": [
+					{
+						"details": "The contract is not initializing."
+					}
+				],
+				"UUPSUnauthorizedCallContext()": [
+					{
+						"details": "The call is from an unauthorized context."
+					}
+				],
+				"UUPSUnsupportedProxiableUUID(bytes32)": [
+					{
+						"details": "The storage `slot` is unsupported as a UUID."
+					}
+				]
+			},
+			"events": {
+				"Initialized(uint64)": {
+					"details": "Triggered when the contract has been initialized or reinitialized."
+				},
+				"Upgraded(address)": {
+					"details": "Emitted when the implementation is upgraded."
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"dao()": {
+					"returns": {
+						"_0": "The DAO contract."
+					}
+				},
+				"proxiableUUID()": {
+					"details": "Implementation of the ERC1822 {proxiableUUID} function. This returns the storage slot used by the implementation. It is used to validate the implementation's compatibility when performing an upgrade. IMPORTANT: A proxy pointing at a proxiable contract should not be considered proxiable itself, because this risks bricking a proxy that upgrades to it, by delegating to itself until out of gas. Thus it is critical that this function revert if invoked through a proxy. This is guaranteed by the `notDelegated` modifier."
+				},
+				"upgradeToAndCall(address,bytes)": {
+					"custom:oz-upgrades-unsafe-allow-reachable": "delegatecall",
+					"details": "Upgrade the implementation of the proxy to `newImplementation`, and subsequently execute the function call encoded in `data`. Calls {_authorizeUpgrade}. Emits an {Upgraded} event."
+				}
+			},
+			"title": "InterfaceBasedRegistry",
+			"version": 1
+		},
+		"userdoc": {
+			"errors": {
+				"ContractAlreadyRegistered(address)": [
+					{
+						"notice": "Thrown if the contract is already registered."
+					}
+				],
+				"ContractERC165SupportInvalid(address)": [
+					{
+						"notice": "Thrown if the contract does not support ERC165."
+					}
+				],
+				"ContractInterfaceInvalid(address)": [
+					{
+						"notice": "Thrown if the contract does not support the required interface."
+					}
+				],
+				"DaoUnauthorized(address,address,address,bytes32)": [
+					{
+						"notice": "Thrown if a call is unauthorized in the associated DAO."
+					}
+				]
+			},
+			"kind": "user",
+			"methods": {
+				"UPGRADE_REGISTRY_PERMISSION_ID()": {
+					"notice": "The ID of the permission required to call the `_authorizeUpgrade` function."
+				},
+				"dao()": {
+					"notice": "Returns the DAO contract."
+				},
+				"entries(address)": {
+					"notice": "The mapping containing the registry entries returning true for registered contract addresses."
+				},
+				"targetInterfaceId()": {
+					"notice": "The [ERC-165](https://eips.ethereum.org/EIPS/eip-165) interface ID that the target contracts being registered must support."
+				}
+			},
+			"notice": "An [ERC-165](https://eips.ethereum.org/EIPS/eip-165)-based registry for contracts.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/src/framework/dao/DAORegistry_flattened.sol": "InterfaceBasedRegistry"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"packages/contracts/src/framework/dao/DAORegistry_flattened.sol": {
+			"keccak256": "0x4d1b0a9339acef72c2da147729f4e9f3e0f0655ae73985f1b07a2f2227d0855c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e9b3fc9f9f8e2815bedcec4b724f496fd7e534228c3e28eeef906b473e544e30",
+				"dweb:/ipfs/QmRLNYe4D3yEm77dYpNhx36UcCWW3k142kbozcJBzf2Gpf"
+			]
+		}
+	},
+	"version": 1
+}

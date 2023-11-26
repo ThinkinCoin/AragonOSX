@@ -1,0 +1,97 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "NameChanged",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "node",
+						"type": "bytes32"
+					}
+				],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"name(bytes32)": {
+					"params": {
+						"node": "The ENS node to query."
+					},
+					"returns": {
+						"_0": "The associated name."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"name(bytes32)": {
+					"notice": "Returns the name associated with an ENS node, for reverse records. Defined in EIP181."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/src/framework/dao/DAORegistry_flattened.sol": "INameResolver"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"packages/contracts/src/framework/dao/DAORegistry_flattened.sol": {
+			"keccak256": "0x4d1b0a9339acef72c2da147729f4e9f3e0f0655ae73985f1b07a2f2227d0855c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e9b3fc9f9f8e2815bedcec4b724f496fd7e534228c3e28eeef906b473e544e30",
+				"dweb:/ipfs/QmRLNYe4D3yEm77dYpNhx36UcCWW3k142kbozcJBzf2Gpf"
+			]
+		}
+	},
+	"version": 1
+}

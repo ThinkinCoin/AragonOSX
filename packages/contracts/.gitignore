@@ -10,4 +10,4 @@ docs/developer-portal/03-reference-guide/*
 
 #Hardhat files
 cache
-artifacts
+#artifacts

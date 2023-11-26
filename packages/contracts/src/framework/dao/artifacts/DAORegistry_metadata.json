@@ -1,0 +1,852 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registrant",
+						"type": "address"
+					}
+				],
+				"name": "ContractAlreadyRegistered",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registrant",
+						"type": "address"
+					}
+				],
+				"name": "ContractERC165SupportInvalid",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "registrant",
+						"type": "address"
+					}
+				],
+				"name": "ContractInterfaceInvalid",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "where",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "who",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "permissionId",
+						"type": "bytes32"
+					}
+				],
+				"name": "DaoUnauthorized",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "subdomain",
+						"type": "string"
+					}
+				],
+				"name": "InvalidDaoSubdomain",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "previousAdmin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "AdminChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "beacon",
+						"type": "address"
+					}
+				],
+				"name": "BeaconUpgraded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "subdomain",
+						"type": "string"
+					}
+				],
+				"name": "DAORegistered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "version",
+						"type": "uint8"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "Upgraded",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "REGISTER_DAO_PERMISSION_ID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "UPGRADE_REGISTRY_PERMISSION_ID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "dao",
+				"outputs": [
+					{
+						"internalType": "contract IDAO",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "entries",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IDAO",
+						"name": "_managingDao",
+						"type": "address"
+					},
+					{
+						"internalType": "contract ENSSubdomainRegistrar",
+						"name": "_subdomainRegistrar",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "protocolVersion",
+				"outputs": [
+					{
+						"internalType": "uint8[3]",
+						"name": "",
+						"type": "uint8[3]"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "proxiableUUID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "contract IDAO",
+						"name": "dao",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "subdomain",
+						"type": "string"
+					}
+				],
+				"name": "register",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "subdomainRegistrar",
+				"outputs": [
+					{
+						"internalType": "contract ENSSubdomainRegistrar",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "targetInterfaceId",
+				"outputs": [
+					{
+						"internalType": "bytes4",
+						"name": "",
+						"type": "bytes4"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					}
+				],
+				"name": "upgradeTo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "upgradeToAndCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Aragon Association - 2022-2023",
+			"custom:security-contact": "sirt@aragon.org",
+			"errors": {
+				"ContractAlreadyRegistered(address)": [
+					{
+						"params": {
+							"registrant": "The address of the contract to be registered."
+						}
+					}
+				],
+				"ContractERC165SupportInvalid(address)": [
+					{
+						"params": {
+							"registrant": "The address of the contract."
+						}
+					}
+				],
+				"ContractInterfaceInvalid(address)": [
+					{
+						"params": {
+							"registrant": "The address of the contract to be registered."
+						}
+					}
+				],
+				"DaoUnauthorized(address,address,address,bytes32)": [
+					{
+						"params": {
+							"dao": "The associated DAO.",
+							"permissionId": "The permission identifier.",
+							"where": "The context in which the authorization reverted.",
+							"who": "The address (EOA or contract) missing the permission."
+						}
+					}
+				]
+			},
+			"events": {
+				"DAORegistered(address,address,string)": {
+					"params": {
+						"creator": "The address of the creator.",
+						"dao": "The address of the DAO contract.",
+						"subdomain": "The DAO subdomain."
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"custom:oz-upgrades-unsafe-allow": "constructor",
+					"details": "Used to disallow initializing the implementation contract by an attacker for extra safety."
+				},
+				"dao()": {
+					"returns": {
+						"_0": "The DAO contract."
+					}
+				},
+				"initialize(address,address)": {
+					"params": {
+						"_managingDao": "the managing DAO address.",
+						"_subdomainRegistrar": "The `ENSSubdomainRegistrar` where `ENS` subdomain will be registered."
+					}
+				},
+				"protocolVersion()": {
+					"details": "This version number is not to be confused with the `release` and `build` numbers found in the `Version.Tag` struct inside the `PluginRepo` contract being used to version plugin setup and associated plugin implementation contracts.",
+					"returns": {
+						"_0": "Returns the semantic Aragon OSx protocol version number."
+					}
+				},
+				"proxiableUUID()": {
+					"details": "Implementation of the ERC1822 {proxiableUUID} function. This returns the storage slot used by the implementation. It is used to validate the implementation's compatibility when performing an upgrade. IMPORTANT: A proxy pointing at a proxiable contract should not be considered proxiable itself, because this risks bricking a proxy that upgrades to it, by delegating to itself until out of gas. Thus it is critical that this function revert if invoked through a proxy. This is guaranteed by the `notDelegated` modifier."
+				},
+				"register(address,address,string)": {
+					"details": "A subdomain is unique within the Aragon DAO framework and can get stored here.",
+					"params": {
+						"creator": "The address of the creator.",
+						"dao": "The address of the DAO contract.",
+						"subdomain": "The DAO subdomain."
+					}
+				},
+				"upgradeTo(address)": {
+					"custom:oz-upgrades-unsafe-allow-reachable": "delegatecall",
+					"details": "Upgrade the implementation of the proxy to `newImplementation`. Calls {_authorizeUpgrade}. Emits an {Upgraded} event."
+				},
+				"upgradeToAndCall(address,bytes)": {
+					"custom:oz-upgrades-unsafe-allow-reachable": "delegatecall",
+					"details": "Upgrade the implementation of the proxy to `newImplementation`, and subsequently execute the function call encoded in `data`. Calls {_authorizeUpgrade}. Emits an {Upgraded} event."
+				}
+			},
+			"title": "Register your unique DAO subdomain",
+			"version": 1
+		},
+		"userdoc": {
+			"errors": {
+				"ContractAlreadyRegistered(address)": [
+					{
+						"notice": "Thrown if the contract is already registered."
+					}
+				],
+				"ContractERC165SupportInvalid(address)": [
+					{
+						"notice": "Thrown if the contract does not support ERC165."
+					}
+				],
+				"ContractInterfaceInvalid(address)": [
+					{
+						"notice": "Thrown if the contract does not support the required interface."
+					}
+				],
+				"DaoUnauthorized(address,address,address,bytes32)": [
+					{
+						"notice": "Thrown if a call is unauthorized in the associated DAO."
+					}
+				],
+				"InvalidDaoSubdomain(string)": [
+					{
+						"notice": "Thrown if the DAO subdomain doesn't match the regex `[0-9a-z\\-]`"
+					}
+				]
+			},
+			"events": {
+				"DAORegistered(address,address,string)": {
+					"notice": "Emitted when a new DAO is registered."
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"REGISTER_DAO_PERMISSION_ID()": {
+					"notice": "The ID of the permission required to call the `register` function."
+				},
+				"UPGRADE_REGISTRY_PERMISSION_ID()": {
+					"notice": "The ID of the permission required to call the `_authorizeUpgrade` function."
+				},
+				"dao()": {
+					"notice": "Returns the DAO contract."
+				},
+				"entries(address)": {
+					"notice": "The mapping containing the registry entries returning true for registered contract addresses."
+				},
+				"initialize(address,address)": {
+					"notice": "Initializes the contract."
+				},
+				"protocolVersion()": {
+					"notice": "Returns the semantic Aragon OSx protocol version number that the implementing contract is associated with."
+				},
+				"register(address,address,string)": {
+					"notice": "Registers a DAO by its address. If a non-empty subdomain name is provided that is not taken already, the DAO becomes the owner of the ENS name."
+				},
+				"subdomainRegistrar()": {
+					"notice": "The ENS subdomain registrar registering the DAO subdomains."
+				},
+				"targetInterfaceId()": {
+					"notice": "The [ERC-165](https://eips.ethereum.org/EIPS/eip-165) interface ID that the target contracts being registered must support."
+				}
+			},
+			"notice": "This contract provides the possibility to register a DAO.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/src/framework/dao/DAORegistry.sol": "DAORegistry"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/v4.9.3/contracts/utils/introspection/IERC165.sol": {
+			"keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+			]
+		},
+		"https://raw.githubusercontent.com/ensdomains/ens-contracts/v0.0.19/contracts/registry/ENS.sol": {
+			"keccak256": "0x7cb1158c7d268b63de1468e28e2711b28d686e2628ddb22da2149cd93ddeafda",
+			"urls": [
+				"bzz-raw://a7018309acca24b10ea1235b1c27828f29f2ddfabb653a794639baf620dc2314",
+				"dweb:/ipfs/QmakFQT5NFvGs3g8xxwtgtWdddq28Wtm6MjNSpJNhV1YpR"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/interfaces/IERC1967Upgradeable.sol": {
+			"keccak256": "0x47d6e06872b12e72c79d1b5eb55842f860b5fb1207b2317c2358d2766b950a7b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ac55bf6f92fc7b90c6d79d346163a0a02bd5c648c7fede08b20e5da96d4ae2a0",
+				"dweb:/ipfs/QmQoSrHhka35iKDK5iyNt8cuXXS5ANXVPjLhfsJjktB8V9"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/interfaces/draft-IERC1822Upgradeable.sol": {
+			"keccak256": "0x77c89f893e403efc6929ba842b7ccf6534d4ffe03afe31670b4a528c0ad78c0f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://496bd9b3df2455d571018c09f0c6badd29713fdeb907c6aa09d8d28cb603f053",
+				"dweb:/ipfs/QmXdJDyYs6WMwMh21dez2BYPxhSUaUYFMDtVNcn2cgFR79"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol": {
+			"keccak256": "0x584ebdf9c1118a7c773f98788e3f3ede01982bdf8932aa06f5acc7d54876e161",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9826c7edf276ff48b99ee217358393097c30448a71d345d287c2f6961bb1f159",
+				"dweb:/ipfs/QmYXBTY9wDvffGU47yMRFJ1NFyKwpbj94VHzRzhsm6R7Gz"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/beacon/IBeaconUpgradeable.sol": {
+			"keccak256": "0x24b86ac8c005b8c654fbf6ac34a5a4f61580d7273541e83e013e89d66fbf0908",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4dbfe1a3b3b3fb64294ce41fd2ad362e7b7012208117864f42c1a67620a6d5c1",
+				"dweb:/ipfs/QmVMU5tWt7zBQMmf5cpMX8UMHV86T3kFeTxBTBjFqVWfoJ"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/Initializable.sol": {
+			"keccak256": "0x89be10e757d242e9b18d5a32c9fbe2019f6d63052bbe46397a430a1d60d7f794",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f103ee2e4aecd37aac6ceefe670709cdd7613dee25fa2d4d9feaf7fc0aaa155e",
+				"dweb:/ipfs/QmRiNZLoJk5k3HPMYGPGjZFd2ke1ZxjhJZkM45Ec9GH9hv"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/UUPSUpgradeable.sol": {
+			"keccak256": "0xb607cb94c27e89750f5ae2ccebcb94e654e926f6125f4fd4c6262c89875118ad",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://33e8f8d863c6943ea046fcf4972b4e815c04ab06bad195dba1d93f8ebeb8420d",
+				"dweb:/ipfs/QmTQzxQTuuzPDk3eqVmYy7hv2RCXM1yt1NtubXpRbzYjaj"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/AddressUpgradeable.sol": {
+			"keccak256": "0x9c80f545915582e63fe206c6ce27cbe85a86fc10b9cd2a0e8c9488fb7c2ee422",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://310136ad60820af4177a11a61d77a3686faf5fca4942b600e08fc940db38396b",
+				"dweb:/ipfs/QmbCzMNSTL7Zi7M4UCSqBrkHtp4jjxUnGbkneCZKdR1qeq"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/ContextUpgradeable.sol": {
+			"keccak256": "0x963ea7f0b48b032eef72fe3a7582edf78408d6f834115b9feadd673a4d5bd149",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d6520943ea55fdf5f0bafb39ed909f64de17051bc954ff3e88c9e5621412c79c",
+				"dweb:/ipfs/QmWZ4rAKTQbNG2HxGs46AcTXShsVytKeLs7CUCdCSv5N7a"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/StorageSlotUpgradeable.sol": {
+			"keccak256": "0x07ac95acad040f1fb1f6120dd0aa5f702db69446e95f82613721879d30de0908",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a9df9de7b5da1d1bd3d4b6c073d0174bc4211db60e794a321c8cb5d4eae34685",
+				"dweb:/ipfs/QmWe49zj65jayrCe9jZpoWhYUZ1RiwSxyU2s7SBZnMztVy"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/ERC165CheckerUpgradeable.sol": {
+			"keccak256": "0x94edef8687cf1335a114f7e7267fa92cb0d9e61afde8d62589aceede6c245caf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9dbcc182503f671c6bb7e2c24fe5f13e4c7604389d6cfccd074bc1d9fa7b86df",
+				"dweb:/ipfs/QmdioHDNmTsJx9xMcwBvA7QJhC4MzTmDmWHiWsZpbETLXx"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/IERC165Upgradeable.sol": {
+			"keccak256": "0xc6cef87559d0aeffdf0a99803de655938a7779ec0a3cd5d4383483ad85565a09",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://92ad7e572cf44e6b4b37631b44b62f9eb9fb1cf14d9ce51c1504d5dc7ccaf758",
+				"dweb:/ipfs/QmcnbqX85tsWnUXPmtuPLE4SczME2sJaTfmqEFkuAJvWhy"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/Resolver.sol": {
+			"keccak256": "0xb7919ce45b17fae018c501263ef7eb81b3c8e3fa81e99cc91aff719a6daaebe8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2342dac876f5809e1460e9e0ef2560d1f739d35997d1e26c0cb2590927ca8a2f",
+				"dweb:/ipfs/QmbBbLoCBdLxA66yeuT8xDCbPrFJD8HUWGmRW2Wq5k1cBx"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IABIResolver.sol": {
+			"keccak256": "0x85b373d02d19374fe570af407f459768285704bf7f30ab17c30eabfb5a10e4c3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2046ce3d92d29806d7b447f7ab4227f19b0b2e5c75fd5b4a3fcaef7fe2442141",
+				"dweb:/ipfs/QmRgnfWjFetrSJngkhU7Yui1ZcK1MeatvZDpvUTYNuYnND"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IAddrResolver.sol": {
+			"keccak256": "0x2ad7f2fc60ebe0f93745fe70247f6a854f66af732483fda2a3c5e055614445e8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://43922ba183ff20d87dce7fc5d715e626b26594151e36dcc8d7c6329b9a822963",
+				"dweb:/ipfs/QmTg9uHTugTxzqddN68gnhNbGt4bGJBS9mQcss6GYggR4X"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IAddressResolver.sol": {
+			"keccak256": "0x411447c1e90c51e09702815a85ec725ffbbe37cf96e8cc4d2a8bd4ad8a59d73e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://543aa2756447a428711b69aea79e9f4641c22f8330ba920b2a49fde8d9207f82",
+				"dweb:/ipfs/QmTdpcYRWLH3BL7iytnqcSzRojTPe3YettKaTqeCvKPk54"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IContentHashResolver.sol": {
+			"keccak256": "0xd95cd77684ba5752c428d7dceb4ecc6506ac94f4fbb910489637eb68dcd8e366",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://daf1fee7770679bd935b8b5686789a4ecc532caeef5a9b8e1b60ae0c285e743e",
+				"dweb:/ipfs/QmSaHBAqtDdbQLH6QN4EbupMrq2ah8g6fqE7fLX1u4cjMZ"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IDNSRecordResolver.sol": {
+			"keccak256": "0xcfa52200edd337f2c6c5bf402352600584da033b21323603e53de33051a3e25d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2c8355211d58db82660140191678ee342eb8a7ac46fa097ae8e03eef008f592e",
+				"dweb:/ipfs/QmYDNiECPd4fJ7Vk9Xywfpg73rUvDpcYqas95ofGcpt7fM"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IDNSZoneResolver.sol": {
+			"keccak256": "0xca1b3a16e7005533f2800a3e66fcdccf7c574deac7913d8c810f40aec1d58dc0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a4e38d5eb69e236c37e4a013628838070720c9e1923569650b01252868038c7a",
+				"dweb:/ipfs/QmV397iZMRxtem79kJy5sueJadXoVL89gNViX2xciQHUrk"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IExtendedResolver.sol": {
+			"keccak256": "0x5d81521cfae7d9a4475d27533cd8ed0d3475d369eb0674fd90ffbdbdf292faa3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d244d15588785044b54c453ab6dc51c616ab70cb8b9e687d3e54565bcae97760",
+				"dweb:/ipfs/QmXz4ZZBTFogdkdTV1mcE3ywvL2agKVZHLNNeRHCKVruYM"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IInterfaceResolver.sol": {
+			"keccak256": "0x390321fb58f7b927df9562450981e74b4be3907e7c09df321fd3b7409b63ae28",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://045d12c6e0e4596b3672614751a9e75188183a89765a6abd938294e0294e9c56",
+				"dweb:/ipfs/QmazngvagEoKe29s4M9Rv8KygWD5hrAtNPkYDPJ2pK13yx"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/INameResolver.sol": {
+			"keccak256": "0x9ec392b612447b1acbdc01114f2da2837a658d3f3157f60a99c5269f0b623346",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5b2cd9e5339b09f40e82bd91fed7d5f643dd031393eefb9aec588eaba8465049",
+				"dweb:/ipfs/QmT2A8eswhJU9YadCs9BtwKNj6YGypntXmFepANQYyGw7x"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/IPubkeyResolver.sol": {
+			"keccak256": "0x69748947093dd2fda9ddcebd0adf19a6d1e7600df1d4b1462a0417156caddca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://bc2f86e50bd17c38fb10feb577d88d8970c585017a391ef10e3aaa3d50f81555",
+				"dweb:/ipfs/QmaxLx2pqCUxf9W2dusfviZ9aSiTuVwuekGo73rjvmGifE"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/ens-contracts/staging/contracts/resolvers/profiles/ITextResolver.sol": {
+			"keccak256": "0x7c5debb3c42cd9f5de2274ea7aa053f238608314b62db441c40e31cea2543fd5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://412e34ae2d84d542ffa6791486963f3fe04432a3ffd51877d441256dc2941914",
+				"dweb:/ipfs/QmciS4mGAQ6KJtLiLcBFekHKhYAYMmubDWGkpZ3sUFtJPW"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/interfaces/IERC1967.sol": {
+			"keccak256": "0x3cbef5ebc24b415252e2f8c0c9254555d30d9f085603b4b80d9b5ed20ab87e90",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e8fa670c3bdce78e642cc6ae11c4cb38b133499cdce5e1990a9979d424703263",
+				"dweb:/ipfs/QmVxeCUk4jL2pXQyhsoNJwyU874wRufS2WvGe8TgPKPqhE"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/interfaces/draft-IERC1822.sol": {
+			"keccak256": "0x1d4afe6cb24200cc4545eed814ecf5847277dfe5d613a1707aad5fceecebcfff",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://383fb7b8181016ac5ccf07bc9cdb7c1b5045ea36e2cc4df52bcbf20396fc7688",
+				"dweb:/ipfs/QmYJ7Cg4WmE3rR8KGQxjUCXFfTH6TcwZ2Z1f6tPrq7jHFr"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/proxy/ERC1967/ERC1967Upgrade.sol": {
+			"keccak256": "0x3b21ae06bf5957f73fa16754b0669c77b7abd8ba6c072d35c3281d446fdb86c2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2db8e18505e86e02526847005d7287a33e397ed7fb9eaba3fd4a4a197add16e2",
+				"dweb:/ipfs/QmW9BSuKTzHWHBNSHF4L8XfVuU1uJrP2vLg84YtBd8mL82"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/proxy/beacon/IBeacon.sol": {
+			"keccak256": "0xd50a3421ac379ccb1be435fa646d66a65c986b4924f0849839f08692f39dde61",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ada1e030c0231db8d143b44ce92b4d1158eedb087880cad6d8cc7bd7ebe7b354",
+				"dweb:/ipfs/QmWZ2NHZweRpz1U9GF6R1h65ri76dnX7fNxLBeM2t5N5Ce"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/proxy/utils/UUPSUpgradeable.sol": {
+			"keccak256": "0xc6619957bcc6641fe8984bfaf9ff11a9e4b97d8149c0495f608f9a2416d7c5cf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://543be67f7fa43b1b932637c1c7f12035f0f4b0f7ee2bd3c33841186f79c165c1",
+				"dweb:/ipfs/QmSBPM2UVKbmJqWfD9i6hSiqbaE8TV4TSqfuiivziRRLKM"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/utils/Address.sol": {
+			"keccak256": "0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931",
+				"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm"
+			]
+		},
+		"https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/v4.9.3/contracts/utils/StorageSlot.sol": {
+			"keccak256": "0xf09e68aa0dc6722a25bc46490e8d48ed864466d17313b8a0b254c36b54e49899",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e26daf81e2252dc1fe1ce0e4b55c2eb7c6d1ee84ae6558d1a9554432ea1d32da",
+				"dweb:/ipfs/Qmb1UANWiWq5pCKbmHSu772hd4nt374dVaghGmwSVNuk8Q"
+			]
+		},
+		"packages/contracts/src/core/dao/IDAO.sol": {
+			"keccak256": "0x9d45c336c22ef5b7873b31d9d56944f683219127007426bdfa27df5450e15fc0",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://0a0165610147542743bcdc1f4eb38501312768a394e255e53e1a4b8d374d039b",
+				"dweb:/ipfs/QmfCvVeH6oCs1yUyGwsV6vLF4JtDR2sUL6MVkhQiSvq45R"
+			]
+		},
+		"packages/contracts/src/core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol": {
+			"keccak256": "0x39b73389db9653916ceba024ca2ee4cf290d094c2b6da4175603279960983ebe",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://de141cf0323525da50a63e09c2548d4f6faf55c1c804f5dfa7afc612d376d4aa",
+				"dweb:/ipfs/QmVn9zMpwmE3AQme4gWzD43AzCBzyRjRFzwjPUjyH8KQcA"
+			]
+		},
+		"packages/contracts/src/core/utils/auth.sol": {
+			"keccak256": "0x214d611471514ee8c3a21de59447101f1cba44090ee078fa2ba758a2ea5016cf",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://c7e51fe2ff30eb754d8ed0a1e4512b35f31d3b7fd1817e277cbfc8721d87fbbf",
+				"dweb:/ipfs/QmdLQ1SW4EjRjXMD4pdtJPTDHeZaieYEN3EeiyaV4dDYRX"
+			]
+		},
+		"packages/contracts/src/framework/dao/DAORegistry.sol": {
+			"keccak256": "0x7e3d87fb47cf393dd276fff3ef9d0d7b1520e83f50f5a48798ecff638b8a612a",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://98b9a855dc46712d6d6f7493e759df09e2b2e3c030e3c5c9d31a7d6c29e9d581",
+				"dweb:/ipfs/QmRG5eNuswrTErien6G88NaB9beE7PAqZY1LTnMACcneYR"
+			]
+		},
+		"packages/contracts/src/framework/utils/InterfaceBasedRegistry.sol": {
+			"keccak256": "0x5760ea1f3c55568c5dbad600f302bbb41a9d1a554915f16abda20252c71b706c",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://c90c8f71d32df5e83949f4745d733de85d5bcce680d19f7df765451adf81035e",
+				"dweb:/ipfs/QmVNdBYuaqgaCGu526K88R9EqU9ERNxGeJ5FmEs2BSFTc4"
+			]
+		},
+		"packages/contracts/src/framework/utils/RegistryUtils.sol": {
+			"keccak256": "0x718a8a2b3b02a1f952e841bc78b806bbebbd5de4cf381feb2822e1c3fafb1070",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://8dd179ac828b7fe125bfbf8984233ca9ddd3fca0b94ad65cd34696ecb89d0219",
+				"dweb:/ipfs/Qmc611VvrtJMjf6eSjGequAV91UkPGEJjQHctKzGbCVB6a"
+			]
+		},
+		"packages/contracts/src/framework/utils/ens/ENSSubdomainRegistrar.sol": {
+			"keccak256": "0x041d159cdf42fba70edba3d9df8ee6e414751efc7175fe1943364bc2b5c2a46a",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://80f06e0b26cfc651edace5be9d9f83dfa25e8aa5117e7250d74922c54e0362e6",
+				"dweb:/ipfs/QmZMxc4tFxoxbSUuz8pTwiFj14M9Z6mChPASXGc36nuX6L"
+			]
+		},
+		"packages/contracts/src/utils/protocol/IProtocolVersion.sol": {
+			"keccak256": "0xd8fc65ec43ce98d036777a945bb3aec34fa96102cb07cc3e347b433e7550d879",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://4f19eb36baedd257e7762902894f447636f51d4df882fafc80b8e111a7d7fa9a",
+				"dweb:/ipfs/QmPB8wKS6eEJfn7Zn78KNpMwAdDgjSxjrodbfHMdjHNZYv"
+			]
+		},
+		"packages/contracts/src/utils/protocol/ProtocolVersion.sol": {
+			"keccak256": "0x53e693a16bda9b3483ce71a5b25a523961930c3f03ec381d9da0be9d37686599",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://48336778e4f2097ff1fb1c4909d2be7a50dd6107f1c31c69aebb41e6162ef0e2",
+				"dweb:/ipfs/QmNTEmpC3arZ5PPq7HX5SRwe9SNL5kLwnmG9zPfUkbi63B"
+			]
+		}
+	},
+	"version": 1
+}
