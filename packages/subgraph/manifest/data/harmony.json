@@ -5,18 +5,18 @@
       "DAORegistry": {
         "name": "DAORegistry",
         "address": "0x8CDE8D834497670658242B301Fe0AbaCb5A301bD",
-        "startBlock": 40817440
+        "startBlock": 50210393
       },
       "PluginRepoRegistry": {
         "name": "PluginRepoRegistry",
         "address": "0x3f0c8C633b68FafB1aEEAB2dCE446E37BC3d9500",
-        "startBlock": 40817440
+        "startBlock": 50215870
       },
       "PluginSetupProcessors": [
         {
           "name": "PluginSetupProcessor",
-          "address": "0x879D9dfe3F36d7684BeC1a2bB4Aa8E8871A7245B",
-          "startBlock": 40817440
+          "address": "0x4655976602B42d897DeDAac11967F93E8Afa3181",
+          "startBlock": 50216156
         }
       ]
     }
