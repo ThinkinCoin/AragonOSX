@@ -97,6 +97,7 @@ const config: HardhatUserConfig = {
       arbitrumTestnet: process.env.ARBISCAN_KEY || '',
       baseMainnet: process.env.BASESCAN_KEY || '',
       baseGoerli: process.env.BASESCAN_KEY || '',
+      harmony: undefined,
       
     },
     customChains: [
@@ -119,11 +120,6 @@ const config: HardhatUserConfig = {
       {
         network: 'harmony',
         chainId: 1666600000,
-        etherscan: {
-          apiKey: {
-            harmony: 'your API key'
-          }
-        }
         urls: {
           apiURL: 'https://api.harmony.one',
           browserURL: 'https://harmony.one',
