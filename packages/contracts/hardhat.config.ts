@@ -127,7 +127,7 @@ const config: HardhatUserConfig = {
           apiKey: {
             harmony: 'your API key'
           }
-        }
+        },
       },
     ],
   },
