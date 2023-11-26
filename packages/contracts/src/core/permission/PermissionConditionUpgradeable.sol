@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {ERC165Upgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/ERC165Upgradeable.sol";
+import {ERC165Upgradeable} from "../../../utils/introspection/ERC165Upgradeable.sol";
 
 import {IProtocolVersion, ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
 import {IPermissionCondition} from "./IPermissionCondition.sol";
