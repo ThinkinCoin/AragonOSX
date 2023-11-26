@@ -2,13 +2,13 @@
 
 pragma solidity ^0.8.8;
 
-import {IERC20PermitUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/extensions/IERC20PermitUpgradeable.sol";
-import {IERC20Upgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/IERC20Upgradeable.sol";
-import {IERC20MetadataUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol";
-import {ERC20VotesUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/extensions/ERC20VotesUpgradeable.sol";
-import {Initializable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/Initializable.sol";
-import {ERC165Upgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/utils/introspection/ERC165Upgradeable.sol";
-import {IVotesUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/governance/utils/IVotesUpgradeable.sol";
+import {IERC20PermitUpgradeable} from "../../../../token/ERC20/extensions/IERC20PermitUpgradeable.sol";
+import {IERC20Upgradeable} from "../../../../token/ERC20/IERC20Upgradeable.sol";
+import {IERC20MetadataUpgradeable} from "../../../../token/ERC20/extensions/IERC20MetadataUpgradeable.sol";
+import {ERC20VotesUpgradeable} from "../../../../token/ERC20/extensions/ERC20VotesUpgradeable.sol";
+import {Initializable} from "../../../../proxy/utils/Initializable.sol";
+import {ERC165Upgradeable} from "../../../../utils/introspection/ERC165Upgradeable.sol";
+import {IVotesUpgradeable} from "../../../../governance/utils/IVotesUpgradeable.sol";
 
 import {DaoAuthorizableUpgradeable} from "../../../core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol";
 import {IDAO} from "../../../core/dao/IDAO.sol";
