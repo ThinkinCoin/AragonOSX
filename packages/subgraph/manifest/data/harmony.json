@@ -4,7 +4,7 @@
     "dataSources": {
       "DAORegistry": {
         "name": "DAORegistry",
-        "address": "0x96E54098317631641703404C06A5afAD89da7373",
+        "address": "0x8CDE8D834497670658242B301Fe0AbaCb5A301bD",
         "startBlock": 40817440
       },
       "PluginRepoRegistry": {

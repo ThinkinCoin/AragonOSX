@@ -119,6 +119,11 @@ const config: HardhatUserConfig = {
       {
         network: 'harmony',
         chainId: 1666600000,
+        etherscan: {
+          apiKey: {
+            harmony: 'your API key'
+          }
+        }
         urls: {
           apiURL: 'https://api.harmony.one',
           browserURL: 'https://harmony.one',
