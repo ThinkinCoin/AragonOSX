@@ -97,7 +97,7 @@ const config: HardhatUserConfig = {
       arbitrumTestnet: process.env.ARBISCAN_KEY || '',
       baseMainnet: process.env.BASESCAN_KEY || '',
       baseGoerli: process.env.BASESCAN_KEY || '',
-      harmony: process.env.HARMONY_KEY || '',
+      
     },
     customChains: [
       {
@@ -114,6 +114,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: 'https://api-goerli.basescan.org/api',
           browserURL: 'https://goerli.basescan.org',
+        },
+      },
+      {
+        network: 'harmony',
+        chainId: 1666600000,
+        urls: {
+          apiURL: 'https://api.harmony.one',
+          browserURL: 'https://harmony.one',
         },
       },
     ],
