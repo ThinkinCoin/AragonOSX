@@ -9,7 +9,7 @@
       },
       "PluginRepoRegistry": {
         "name": "PluginRepoRegistry",
-        "address": "0xA03C2182af8eC460D498108C92E8638a580b94d4",
+        "address": "0x3f0c8C633b68FafB1aEEAB2dCE446E37BC3d9500",
         "startBlock": 40817440
       },
       "PluginSetupProcessors": [

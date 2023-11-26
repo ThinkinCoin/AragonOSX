@@ -5,7 +5,7 @@ const {ethers} = require('ethers');
 
 const networks = require('../../../../packages/contracts/networks.json');
 const daoJson = require('../../../../packages/contracts/artifacts/contracts/core/IDAO.sol/IDAO.json');
-const erc20Json = require('../../../../packages/contracts/artifacts/@openzeppelin/contracts/token/ERC20/IERC20.sol/IERC20.json');
+const erc20Json = require('../../../../packages/contracts/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC20/IERC20.sol/IERC20.json');
 const dummyDaos = require('../../../../dummy_daos.json');
 const gas = require('./estimateGas');
 const {TOKENLIST} = require('./constans');

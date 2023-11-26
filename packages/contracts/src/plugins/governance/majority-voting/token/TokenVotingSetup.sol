@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.8;
 
-import {Clones} from "@openzeppelin/contracts/proxy/Clones.sol";
-import {Address} from "@openzeppelin/contracts/utils/Address.sol";
-import {ERC165Checker} from "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol";
+import {Clones} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/proxy/Clones.sol";
+import {Address} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/Address.sol";
+import {ERC165Checker} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/introspection/ERC165Checker.sol";
 import {IERC20Upgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/token/ERC20/IERC20Upgradeable.sol";
 import {IVotesUpgradeable} from "https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/governance/utils/IVotesUpgradeable.sol";
 

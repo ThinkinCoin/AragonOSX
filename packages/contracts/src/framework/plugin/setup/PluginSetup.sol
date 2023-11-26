@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.8;
 
-import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
-import {ERC165Checker} from "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol";
-import {Clones} from "@openzeppelin/contracts/proxy/Clones.sol";
+import {ERC165} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/introspection/ERC165.sol";
+import {ERC165Checker} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/introspection/ERC165Checker.sol";
+import {Clones} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/proxy/Clones.sol";
 
 import {IProtocolVersion, ProtocolVersion} from "../../../utils/protocol/ProtocolVersion.sol";
 import {PermissionLib} from "../../../core/permission/PermissionLib.sol";

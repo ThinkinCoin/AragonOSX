@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.8;
 
-import {Counters} from "@openzeppelin/contracts/utils/Counters.sol";
-import {ERC165} from "@openzeppelin/contracts/utils/introspection/ERC165.sol";
+import {Counters} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/Counters.sol";
+import {ERC165} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/introspection/ERC165.sol";
 
 import "./IProposal.sol";
 

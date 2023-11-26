@@ -119,7 +119,7 @@ The `prepareInstallation()` function should take in two parameters:
 Hence, the first thing we should do when working on the `prepareInsallation()` function is decode the information from the `_data` parameter. We also want to check that the address is not accidentally set to `address(0)`, which would freeze the DAO forever.
 
 ```solidity
-import {Clones} from '@openzeppelin/contracts/proxy/Clones.sol';
+import {Clones} from 'https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/proxy/Clones.sol';
 
 contract SimpleAdminSetup is PluginSetup {
   using Clones for address;
@@ -229,7 +229,7 @@ Now, it's time to wrap up everything together. You should have a contract that l
 // SPDX-License-Identifier: AGPL-3.0-or-later
 pragma solidity 0.8.21;
 
-import {Clones} from '@openzeppelin/contracts/proxy/Clones.sol';
+import {Clones} from 'https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/proxy/Clones.sol';
 
 import {PermissionLib} from '@aragon/osx/core/permission/PermissionLib.sol';
 import {PluginSetup, IPluginSetup} from '@aragon/osx/framework/plugin/setup/PluginSetup.sol';

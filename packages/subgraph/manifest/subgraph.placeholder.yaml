@@ -20,7 +20,7 @@ dataSources:
         - Dao
       abis:
         - name: ERC20
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/token/ERC20/ERC20.sol/ERC20.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC20/ERC20.sol/ERC20.json
         - name: DAORegistry
           file: $ARAGON_OSX_MODULE/artifacts/src/framework/dao/DAORegistry.sol/DAORegistry.json
       eventHandlers:
@@ -67,9 +67,9 @@ dataSources:
         - name: PluginSetupProcessor
           file: $ARAGON_OSX_MODULE/artifacts/src/framework/plugin/setup/PluginSetupProcessor.sol/PluginSetupProcessor.json
         - name: ERC20
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/token/ERC20/ERC20.sol/ERC20.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC20/ERC20.sol/ERC20.json
         - name: ERC165
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/utils/introspection/ERC165.sol/ERC165.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/introspection/ERC165.sol/ERC165.json
         - name: TokenVoting
           file: $ARAGON_OSX_MODULE/artifacts/src/plugins/governance/majority-voting/token/TokenVoting.sol/TokenVoting.json
         - name: AddresslistVoting
@@ -108,13 +108,13 @@ templates:
         - Dao
       abis:
         - name: ERC20
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/token/ERC20/ERC20.sol/ERC20.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC20/ERC20.sol/ERC20.json
         - name: ERC721
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/token/ERC721/ERC721.sol/ERC721.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC721/ERC721.sol/ERC721.json
         - name: ERC1155
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/token/ERC1155/ERC1155.sol/ERC1155.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC1155/ERC1155.sol/ERC1155.json
         - name: ERC165
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/utils/introspection/ERC165.sol/ERC165.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/introspection/ERC165.sol/ERC165.json
         - name: TokenVoting
           file: $ARAGON_OSX_MODULE/artifacts/src/plugins/governance/majority-voting/token/TokenVoting.sol/TokenVoting.json
         - name: AddresslistVoting
@@ -162,13 +162,13 @@ templates:
         - name: DAO
           file: $ARAGON_OSX_MODULE/artifacts/src/core/dao/DAO.sol/DAO.json
         - name: ERC20
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/token/ERC20/ERC20.sol/ERC20.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC20/ERC20.sol/ERC20.json
         - name: ERC721
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/token/ERC721/ERC721.sol/ERC721.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC721/ERC721.sol/ERC721.json
         - name: ERC1155
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/token/ERC1155/ERC1155.sol/ERC1155.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC1155/ERC1155.sol/ERC1155.json
         - name: ERC165
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/utils/introspection/ERC165.sol/ERC165.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/introspection/ERC165.sol/ERC165.json
         - name: TokenVoting
           file: $ARAGON_OSX_MODULE/artifacts/src/plugins/governance/majority-voting/token/TokenVoting.sol/TokenVoting.json
         - name: AddresslistVoting
@@ -195,7 +195,7 @@ templates:
         - Dao
       abis:
         - name: ERC20
-          file: $ARAGON_OSX_MODULE/artifacts/@openzeppelin/contracts/token/ERC20/ERC20.sol/ERC20.json
+          file: $ARAGON_OSX_MODULE/artifacts/https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC20/ERC20.sol/ERC20.json
         - name: GovernanceWrappedERC20
           file: $ARAGON_OSX_MODULE/artifacts/src/token/ERC20/governance/GovernanceWrappedERC20.sol/GovernanceWrappedERC20.json
         - name: TokenVoting

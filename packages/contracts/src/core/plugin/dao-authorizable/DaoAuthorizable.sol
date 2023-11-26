@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {Context} from "@openzeppelin/contracts/utils/Context.sol";
+import {Context} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/utils/Context.sol";
 
 import {IDAO} from "../../dao/IDAO.sol";
 import {_auth} from "../../utils/auth.sol";
