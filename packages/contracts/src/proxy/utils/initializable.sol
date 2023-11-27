@@ -40,7 +40,7 @@ import "../../utils/AddressUpgradeable.sol";
  *
  * [CAUTION]
  * ====
- * Avoid leaving a contract uninitialized.
+ * Avoid leaving a contract uninitialized.  
  *
  * An uninitialized contract can be taken over by an attacker. This applies to both a proxy and its implementation
  * contract, which may impact the proxy. To prevent the implementation contract from being used, you should invoke
