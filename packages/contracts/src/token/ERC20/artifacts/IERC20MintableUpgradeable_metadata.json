@@ -1,0 +1,78 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"custom:security-contact": "sirt@aragon.org",
+			"kind": "dev",
+			"methods": {
+				"mint(address,uint256)": {
+					"params": {
+						"_amount": "The amount of tokens.",
+						"_to": "The receiving address."
+					}
+				}
+			},
+			"title": "IERC20MintableUpgradeable",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"mint(address,uint256)": {
+					"notice": "Mints [ERC-20](https://eips.ethereum.org/EIPS/eip-20) tokens for a receiving address."
+				}
+			},
+			"notice": "Interface to allow minting of [ERC-20](https://eips.ethereum.org/EIPS/eip-20) tokens.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/src/token/ERC20/IERC20MintableUpgradeable.sol": "IERC20MintableUpgradeable"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"packages/contracts/src/token/ERC20/IERC20MintableUpgradeable.sol": {
+			"keccak256": "0x2b5a4c519974bd1115ed4762df5a79618b5b0bc48b2f2550c75c1d25b718a605",
+			"license": "AGPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://d27be94e5bd8ea4f8b667afc5eabf84f8d4efbb8e7c9fd66f9139927adf7a3af",
+				"dweb:/ipfs/QmQ56myFrKSBCbFPo2vKScPgjk58vehj6bhDT74uajstgG"
+			]
+		}
+	},
+	"version": 1
+}

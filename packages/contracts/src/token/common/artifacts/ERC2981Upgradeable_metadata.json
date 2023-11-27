@@ -1,0 +1,160 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "version",
+						"type": "uint8"
+					}
+				],
+				"name": "Initialized",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "salePrice",
+						"type": "uint256"
+					}
+				],
+				"name": "royaltyInfo",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Implementation of the NFT Royalty Standard, a standardized way to retrieve royalty payment information. Royalty information can be specified globally for all token ids via {_setDefaultRoyalty}, and/or individually for specific token ids via {_setTokenRoyalty}. The latter takes precedence over the first. Royalty is specified as a fraction of sale price. {_feeDenominator} is overridable but defaults to 10000, meaning the fee is specified in basis points by default. IMPORTANT: ERC-2981 only specifies a way to signal royalty information and does not enforce its payment. See https://eips.ethereum.org/EIPS/eip-2981#optional-royalty-payments[Rationale] in the EIP. Marketplaces are expected to voluntarily pay royalties together with sales, but note that this standard is not yet widely supported. _Available since v4.5._",
+			"kind": "dev",
+			"methods": {
+				"royaltyInfo(uint256,uint256)": {
+					"details": "Returns how much royalty is owed and to whom, based on a sale price that may be denominated in any unit of exchange. The royalty amount is denominated and should be paid in that same unit of exchange."
+				},
+				"supportsInterface(bytes4)": {
+					"details": "See {IERC165-supportsInterface}."
+				}
+			},
+			"stateVariables": {
+				"__gap": {
+					"details": "This empty reserved space is put in place to allow future versions to add new variables without shifting down storage in the inheritance chain. See https://docs.openzeppelin.com/contracts/4.x/upgradeable#storage_gaps"
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/src/token/common/ERC2981Upgradeable.sol": "ERC2981Upgradeable"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"packages/contracts/src/interfaces/IERC2981Upgradeable.sol": {
+			"keccak256": "0x6ecc13cbe09980230b2878ce6cc8c2a693c9d8ba1271710276305fc7f56a3eec",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2c7f8a1b19e09a551b18cd10057ed43283386332901d8213633ee43a5d2a8767",
+				"dweb:/ipfs/QmcQRffWacgoqtqpjyJumYKyPgZC2wxqYhxFKJMoGdJhcT"
+			]
+		},
+		"packages/contracts/src/proxy/utils/initializable.sol": {
+			"keccak256": "0x1c9fa831fc19df735b11f56a5e8af717e3feb0fbba4423234d6a3d6f3e76010c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dccf3e7461c8888f4423781d24939f32b3cd3bf7628c36d947c4ddfad1e33090",
+				"dweb:/ipfs/QmTESPA5kL5aTGCLRsJGVCS831iyDN6SSD5q5Tv69TWBK1"
+			]
+		},
+		"packages/contracts/src/token/common/ERC2981Upgradeable.sol": {
+			"keccak256": "0x010cd30e83668e093eaf523b1af9ad28afe785da977fc1e7150c0bee61c0b1ef",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8b5fe13a6bd35bd5b5ff60aa467c5a790e79610509694e6fd82299b7a0ad6fc0",
+				"dweb:/ipfs/QmUcshsyTjMrsp4tVSQCBNnBQzr4fK4MR655Sx5Ld4PQmW"
+			]
+		},
+		"packages/contracts/src/utils/AddressUpgradeable.sol": {
+			"keccak256": "0xca6075c066d8541c7a862e6dbeaa9243bb9fafc444f42d0f9a3f14583e26208f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ee4b3fb9987745b03f883f175f3c9578cb4415e9e30e0643f840768e7f7e6c58",
+				"dweb:/ipfs/QmVRi2tFZ75YmwYP5KQMyerGo8GCXAZSRQP7NZTgHhv7kj"
+			]
+		},
+		"packages/contracts/src/utils/introspection/ERC165Upgradeable.sol": {
+			"keccak256": "0xb36c1a4307560409f1316475ed84490b329a951302b9569a8ff018295f929b05",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://87b34a74de4dc36da1ea97ce93009dac35599306ccba0974a792d1786ad59753",
+				"dweb:/ipfs/QmTcnqSDLRLjkPciYxA5VwxBSYMyQayYQv6SXprZBBgb5q"
+			]
+		},
+		"packages/contracts/src/utils/introspection/IERC165Upgradeable.sol": {
+			"keccak256": "0xa3a86fd8399ff01763901b64ed4603d979787747d7b83f70d6d3c7d4f6b79214",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://46c8a582b7c414ed987dfc73de91899493cd62be3a4087b09194cfdc1bbd6bf8",
+				"dweb:/ipfs/QmTpZgF3997huy7avP5EyowdwoSUj9FbHESH16wAtAvpkw"
+			]
+		}
+	},
+	"version": 1
+}
