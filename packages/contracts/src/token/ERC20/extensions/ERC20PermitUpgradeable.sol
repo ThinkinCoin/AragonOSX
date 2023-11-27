@@ -8,7 +8,7 @@ import "../ERC20Upgradeable.sol";
 import "../../../utils/cryptography/ECDSAUpgradeable.sol";
 import "../../../utils/cryptography/EIP712Upgradeable.sol";
 import "../../../utils/CountersUpgradeable.sol";
-import "../../../proxy/utils/Initializable.sol";
+import "../../../proxy/utils/initializable.sol";
 
 /**
  * @dev Implementation of the ERC20 Permit extension allowing approvals to be made via signatures, as defined in
