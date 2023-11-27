@@ -10,8 +10,8 @@ import {Initializable} from "../../../proxy/utils/initializable.sol";
 import {ERC165Upgradeable} from "../../../utils/introspection/ERC165Upgradeable.sol";
 import {IVotesUpgradeable} from "../../../governance/utils/IVotesUpgradeable.sol";
 
-import {DaoAuthorizableUpgradeable} from "../../core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol";
-import {IDAO} from "../../core/dao/IDAO.sol";
+import {DaoAuthorizableUpgradeable} from "../../../core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol";
+import {IDAO} from "../../../core/dao/IDAO.sol";
 import {IERC20MintableUpgradeable} from "../IERC20MintableUpgradeable.sol";
 
 /// @title GovernanceERC20

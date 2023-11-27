@@ -12,8 +12,8 @@ import {ERC20VotesUpgradeable} from "../../../token/ERC20/extensions/ERC20VotesU
 import {Initializable} from "../../../proxy/utils/initializable.sol";
 import {ERC165Upgradeable} from "../../../utils/introspection/ERC165Upgradeable.sol";
 
-import {DaoAuthorizableUpgradeable} from "../../core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol";
-import {IDAO} from "../../core/dao/IDAO.sol";
+import {DaoAuthorizableUpgradeable} from "../../../core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol";
+import {IDAO} from "../../../core/dao/IDAO.sol";
 import {IGovernanceWrappedERC20} from "./IGovernanceWrappedERC20.sol";
 
 /// @title GovernanceWrappedERC20
