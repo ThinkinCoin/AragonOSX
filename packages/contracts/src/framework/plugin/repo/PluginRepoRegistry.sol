@@ -2,11 +2,11 @@
 
 pragma solidity ^0.8.8;
 
-import {ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
+import {ProtocolVersion} from "../../../utils/protocol/ProtocolVersion.sol";
 import {IDAO} from "../../../core/dao/IDAO.sol";
-import {ENSSubdomainRegistrar} from "../../utils/ens/ENSSubdomainRegistrar.sol";
-import {InterfaceBasedRegistry} from "../../utils/InterfaceBasedRegistry.sol";
-import {isSubdomainValid} from "../../utils/RegistryUtils.sol";
+import {ENSSubdomainRegistrar} from "../../../utils/ens/ENSSubdomainRegistrar.sol";
+import {InterfaceBasedRegistry} from "../../../utils/InterfaceBasedRegistry.sol";
+import {isSubdomainValid} from "../../../utils/RegistryUtils.sol";
 import {IPluginRepo} from "./IPluginRepo.sol";
 
 /// @title PluginRepoRegistry

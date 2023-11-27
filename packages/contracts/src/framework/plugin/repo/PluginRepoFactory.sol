@@ -4,10 +4,10 @@ pragma solidity ^0.8.8;
 
 import {ERC165} from "../../../utils/introspection/ERC165.sol";
 
-import {PermissionLib} from "../....//core/permission/PermissionLib.sol";
-import {IProtocolVersion} from "../../utils/protocol/IProtocolVersion.sol";
-import {ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
-import {createERC1967Proxy} from "../../utils/Proxy.sol";
+import {PermissionLib} from "../../../core/permission/PermissionLib.sol";
+import {IProtocolVersion} from "../../../utils/protocol/IProtocolVersion.sol";
+import {ProtocolVersion} from "../../../utils/protocol/ProtocolVersion.sol";
+import {createERC1967Proxy} from "../../../utils/Proxy.sol";
 import {PluginRepoRegistry} from "./PluginRepoRegistry.sol";
 import {PluginRepo} from "./PluginRepo.sol";
 

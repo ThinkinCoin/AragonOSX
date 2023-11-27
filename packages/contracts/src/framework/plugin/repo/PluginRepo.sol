@@ -8,8 +8,8 @@ import {UUPSUpgradeable} from "../../../proxy/utils/UUPSUpgradeable.sol";
 import {AddressUpgradeable} from "../../../utils/AddressUpgradeable.sol";
 import {ERC165CheckerUpgradeable} from "../../../utils/introspection/ERC165CheckerUpgradeable.sol";
 
-import {IProtocolVersion} from "../../utils/protocol/IProtocolVersion.sol";
-import {ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
+import {IProtocolVersion} from "../../../utils/protocol/IProtocolVersion.sol";
+import {ProtocolVersion} from "../../../utils/protocol/ProtocolVersion.sol";
 import {PermissionManager} from "../../../core/permission/PermissionManager.sol";
 import {PluginSetup} from "../setup/PluginSetup.sol";
 import {IPluginSetup} from "../setup/PluginSetup.sol";
