@@ -1,0 +1,517 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "_anchors",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "class",
+						"type": "uint16"
+					}
+				],
+				"name": "InvalidClass",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "name",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint256",
+						"name": "labelsExpected",
+						"type": "uint256"
+					}
+				],
+				"name": "InvalidLabelCount",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "proofType",
+						"type": "uint16"
+					}
+				],
+				"name": "InvalidProofType",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidRRSet",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "rrsetName",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "signerName",
+						"type": "bytes"
+					}
+				],
+				"name": "InvalidSignerName",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "signerName",
+						"type": "bytes"
+					}
+				],
+				"name": "NoMatchingProof",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "signerName",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "proofName",
+						"type": "bytes"
+					}
+				],
+				"name": "ProofNameMismatch",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "expiration",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "now",
+						"type": "uint32"
+					}
+				],
+				"name": "SignatureExpired",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "inception",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint32",
+						"name": "now",
+						"type": "uint32"
+					}
+				],
+				"name": "SignatureNotValidYet",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "rrsetType",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint16",
+						"name": "sigType",
+						"type": "uint16"
+					}
+				],
+				"name": "SignatureTypeMismatch",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "id",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "AlgorithmUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "id",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "DigestUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"name": "algorithms",
+				"outputs": [
+					{
+						"internalType": "contract Algorithm",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "anchors",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"name": "digests",
+				"outputs": [
+					{
+						"internalType": "contract Digest",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "id",
+						"type": "uint8"
+					},
+					{
+						"internalType": "contract Algorithm",
+						"name": "algo",
+						"type": "address"
+					}
+				],
+				"name": "setAlgorithm",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "id",
+						"type": "uint8"
+					},
+					{
+						"internalType": "contract Digest",
+						"name": "digest",
+						"type": "address"
+					}
+				],
+				"name": "setDigest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "setOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "bytes",
+								"name": "rrset",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "sig",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct DNSSEC.RRSetWithSignature[]",
+						"name": "input",
+						"type": "tuple[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "now",
+						"type": "uint256"
+					}
+				],
+				"name": "verifyRRSet",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "rrs",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint32",
+						"name": "inception",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "bytes",
+								"name": "rrset",
+								"type": "bytes"
+							},
+							{
+								"internalType": "bytes",
+								"name": "sig",
+								"type": "bytes"
+							}
+						],
+						"internalType": "struct DNSSEC.RRSetWithSignature[]",
+						"name": "input",
+						"type": "tuple[]"
+					}
+				],
+				"name": "verifyRRSet",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "rrs",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint32",
+						"name": "inception",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"details": "Constructor.",
+					"params": {
+						"_anchors": "The binary format RR entries for the root DS records."
+					}
+				},
+				"setAlgorithm(uint8,address)": {
+					"details": "Sets the contract address for a signature verification algorithm.      Callable only by the owner.",
+					"params": {
+						"algo": "The address of the algorithm contract.",
+						"id": "The algorithm ID"
+					}
+				},
+				"setDigest(uint8,address)": {
+					"details": "Sets the contract address for a digest verification algorithm.      Callable only by the owner.",
+					"params": {
+						"digest": "The address of the digest contract.",
+						"id": "The digest ID"
+					}
+				},
+				"verifyRRSet((bytes,bytes)[])": {
+					"details": "Takes a chain of signed DNS records, verifies them, and returns the data from the last record set in the chain.      Reverts if the records do not form an unbroken chain of trust to the DNSSEC anchor records.",
+					"params": {
+						"input": "A list of signed RRSets."
+					},
+					"returns": {
+						"inception": "The inception time of the signed record set.",
+						"rrs": "The RRData from the last RRSet in the chain."
+					}
+				},
+				"verifyRRSet((bytes,bytes)[],uint256)": {
+					"details": "Takes a chain of signed DNS records, verifies them, and returns the data from the last record set in the chain.      Reverts if the records do not form an unbroken chain of trust to the DNSSEC anchor records.",
+					"params": {
+						"input": "A list of signed RRSets.",
+						"now": "The Unix timestamp to validate the records at."
+					},
+					"returns": {
+						"inception": "The inception time of the signed record set.",
+						"rrs": "The RRData from the last RRSet in the chain."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"packages/contracts/src/dnssec-oracle/DNSSECImpl.sol": "DNSSECImpl"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@ensdomains/buffer/contracts/Buffer.sol": {
+			"keccak256": "0xd6dd3b0b327288f8e1b711a609f4040fea602e2ad4bba9febdf2f33b4e56eb0c",
+			"license": "BSD-2-Clause",
+			"urls": [
+				"bzz-raw://78a722152d40d778a97595e5224fac1d138f4e659dcb1a926148909ef4c4bdca",
+				"dweb:/ipfs/QmRxScF53x5ywsChLNpMUCdg2TSoCWTfo8G65Mo3sGY55b"
+			]
+		},
+		"packages/contracts/src/dnssec-oracle/BytesUtils.sol": {
+			"keccak256": "0x7362a411f1cf9462eabb40847e7dfe6ffb2a9039ec996f6f9e7335f2c1e69290",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://d371e4a35657aadec9c397b7cea8a5b86df3b5103d8e477bb9b4f3af4764d140",
+				"dweb:/ipfs/QmYVw3XwgsRQhb6nr6szegPPnnXwp2Zm8wESHzXA2Ka5yy"
+			]
+		},
+		"packages/contracts/src/dnssec-oracle/DNSSEC.sol": {
+			"keccak256": "0x2fc67aef2359ab521c6c84d706df5d246d49bb1f6a605fb605272a7e976a61a2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://740e97cfdd0541635b2d6d30756aaa41f7b632db649f517e757432188ebeff02",
+				"dweb:/ipfs/QmexKwKERStSpTnpR2aAkvfrgFaJsfdfw8MRXWgtmPqfan"
+			]
+		},
+		"packages/contracts/src/dnssec-oracle/DNSSECImpl.sol": {
+			"keccak256": "0xade69f92466289876ebcf455bfa7750b21f4ff422d4fcd361d21e422f234535c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://950ccfbc0fc0e4d70cd2fef689ad9b02e6db1299a98ae581659d2cb4aa1dca84",
+				"dweb:/ipfs/QmYmPeio1S3XwgCHC5s13h1rbtkLFWZZkM5KFMMtgfCzwd"
+			]
+		},
+		"packages/contracts/src/dnssec-oracle/Owned.sol": {
+			"keccak256": "0x1f7ffdc6603cc0e410efcfb147d2fcdb4ae58e6a0960961c218702221e89d693",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://5c8540c45075bc58891eee1dd5b4563e485fbba3e5a5e7e599a621c95e26b2dc",
+				"dweb:/ipfs/QmZAskqk9YMoq4dBBtk9NKpGdPjioQWNboAAKFPKF6ZnKU"
+			]
+		},
+		"packages/contracts/src/dnssec-oracle/RRUtils.sol": {
+			"keccak256": "0xfc95bcfeaca73cf42eb3c9b7408038c983aa46ac2126599c7f05722a6367bf06",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://da6b2d9294e363f33a7f263c758751b9ebf80680a4204e92ea6c2adccd605c48",
+				"dweb:/ipfs/QmTvLo6jFDi1YnVRiLBu13E2dUZHAPTp2ut2SmcoMYPKuS"
+			]
+		},
+		"packages/contracts/src/dnssec-oracle/algorithms/Algorithm.sol": {
+			"keccak256": "0x195a322cf3d415715736b5d1584b595affe6c971c34dd7ffe8fb2137127dd7c8",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://8518832950cf128b57d5ddeafe6d662beb00e65b5afb395f8ffc8a43bcbc0cf4",
+				"dweb:/ipfs/QmUnW1f8j8gXMPxRTtHBkMr8mA8R2VAsh78bFjXfnni4ka"
+			]
+		},
+		"packages/contracts/src/dnssec-oracle/digests/Digest.sol": {
+			"keccak256": "0xaef2af7905ae4f9860191c0a0ce34037768efa1f31170381e4229ad00f405d9e",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://72f6b874be8cd8d21a0c817f01b4c5f26dcb98bf83bf4612f8f26ecd3cc457c6",
+				"dweb:/ipfs/QmPpfiXoVjkZ4hFp8qYFmu2g2atkHJW87cGd2VLZwzzTsY"
+			]
+		}
+	},
+	"version": 1
+}

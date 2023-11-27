@@ -3,6 +3,7 @@
 pragma solidity ^0.8.0;
 
 import "../../proxy/utils/UUPSUpgradeable.sol";
+import "../../proxy/ERC1967/ERC1967Upgrade.sol";
 import "../../utils/Counters.sol";
 
 contract NonUpgradeableMock {
