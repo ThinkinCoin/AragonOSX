@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.8;
 
-import {UUPSUpgradeable} from "../../../proxy/utils/UUPSUpgradeable.sol";
-import {IERC1822ProxiableUpgradeable} from "../../../interfaces/draft-IERC1822Upgradeable.sol";
-import {ERC165Upgradeable} from "../../../utils/introspection/ERC165Upgradeable.sol";
+import {UUPSUpgradeable} from "../../proxy/utils/UUPSUpgradeable.sol";
+import {IERC1822ProxiableUpgradeable} from "../../interfaces/draft-IERC1822Upgradeable.sol";
+import {ERC165Upgradeable} from "../../utils/introspection/ERC165Upgradeable.sol";
 
 import {IProtocolVersion, ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
 import {IDAO} from "../dao/IDAO.sol";
