@@ -6,7 +6,7 @@ import "../../../../registry/ENS.sol";
 import "../../../../resolvers/Resolver.sol";
 
 import {ProtocolVersion} from "../../../utils/protocol/ProtocolVersion.sol";
-import {UUPSUpgradeable} from "../../../../../proxy/utils/UUPSUpgradeable.sol";
+import {UUPSUpgradeable} from "../../../../proxy/utils/UUPSUpgradeable.sol";
 import {DaoAuthorizableUpgradeable} from "../../../core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol";
 import {IDAO} from "../../../core/dao/IDAO.sol";
 
