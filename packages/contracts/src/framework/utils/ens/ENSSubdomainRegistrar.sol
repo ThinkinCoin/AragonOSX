@@ -7,8 +7,8 @@ import "../../../resolvers/Resolver.sol";
 
 import {ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
 import {UUPSUpgradeable} from "../../../proxy/utils/UUPSUpgradeable.sol";
-import {DaoAuthorizableUpgradeable} from "../../core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol";
-import {IDAO} from "../../core/dao/IDAO.sol";
+import {DaoAuthorizableUpgradeable} from "../../../core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol";
+import {IDAO} from "../../../core/dao/IDAO.sol";
 
 /// @title ENSSubdomainRegistrar
 /// @author Aragon Association - 2022-2023
