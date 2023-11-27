@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {Clones} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/proxy/Clones.sol";
+import {Clones} from "../../../proxy/Clones.sol";
 
 contract CloneFactory {
     using Clones for address;

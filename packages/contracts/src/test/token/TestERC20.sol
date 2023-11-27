@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC20/ERC20.sol";
+import "../../../token/ERC20/ERC20.sol";
 
 contract TestERC20 is ERC20 {
     uint8 public decimals_ = 18;

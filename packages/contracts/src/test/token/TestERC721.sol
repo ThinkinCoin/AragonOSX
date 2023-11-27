@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/token/ERC721/ERC721.sol";
+import "../../../token/ERC721/ERC721.sol";
 
 contract TestERC721 is ERC721 {
     constructor(string memory name_, string memory symbol_) ERC721(name_, symbol_) {}
