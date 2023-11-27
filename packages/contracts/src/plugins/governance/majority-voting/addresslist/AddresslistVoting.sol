@@ -5,10 +5,10 @@ pragma solidity ^0.8.8;
 import {SafeCastUpgradeable} from "../../../../utils/math/SafeCastUpgradeable.sol";
 
 import {IDAO} from "../../../../core/dao/IDAO.sol";
-import {RATIO_BASE, _applyRatioCeiled} from "../../utils/Ratio.sol";
+import {RATIO_BASE, _applyRatioCeiled} from "../../../utils/Ratio.sol";
 
-import {IMembership} from "../../../core/plugin/membership/IMembership.sol";
-import {Addresslist} from "../../utils/Addresslist.sol";
+import {IMembership} from "../../../../core/plugin/membership/IMembership.sol";
+import {Addresslist} from "../../../utils/Addresslist.sol";
 import {IMajorityVoting} from "../IMajorityVoting.sol";
 import {MajorityVotingBase} from "../MajorityVotingBase.sol";
 
