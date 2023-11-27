@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {Initializable} from "../../../proxy/utils/Initializable.sol";
+import {Initializable} from "../../../proxy/utils/initializable.sol";
 import {ERC165Upgradeable} from "../../../utils/introspection/ERC165Upgradeable.sol";
 import {UUPSUpgradeable} from "../../../proxy/utils/UUPSUpgradeable.sol";
 import {AddressUpgradeable} from "../../../utils/AddressUpgradeable.sol";
