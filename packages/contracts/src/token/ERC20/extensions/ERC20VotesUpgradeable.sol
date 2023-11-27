@@ -4,11 +4,11 @@
 pragma solidity ^0.8.0;
 
 import "./ERC20PermitUpgradeable.sol";
-import "../../interfaces/IERC5805Upgradeable.sol";
-import "../../utils/math/MathUpgradeable.sol";
-import "../../utils/math/SafeCastUpgradeable.sol";
-import "../../utils/cryptography/ECDSAUpgradeable.sol";
-import "../../proxy/utils/initializable.sol";
+import "../../../interfaces/IERC5805Upgradeable.sol";
+import "../../../utils/math/MathUpgradeable.sol";
+import "../../../utils/math/SafeCastUpgradeable.sol";
+import "../../../utils/cryptography/ECDSAUpgradeable.sol";
+import "../../../proxy/utils/initializable.sol";
 
 /**
  * @dev Extension of ERC20 to support Compound-like voting and delegation. This version is more generic than Compound's,
