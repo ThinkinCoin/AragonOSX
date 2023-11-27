@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {PermissionLib} from "../../core/permission/PermissionLib.sol";
+import {PermissionLib} from "../../../core/permission/PermissionLib.sol";
 import {PluginRepo} from "../repo/PluginRepo.sol";
 import {PluginSetup} from "./PluginSetup.sol";
 
