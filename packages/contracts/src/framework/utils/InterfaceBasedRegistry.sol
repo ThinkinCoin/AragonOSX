@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.8;
 
-import {UUPSUpgradeable} from "../../../proxy/utils/UUPSUpgradeable.sol";
-import {ERC165CheckerUpgradeable} from "../../../utils/introspection/ERC165CheckerUpgradeable.sol";
+import {UUPSUpgradeable} from "../../proxy/utils/UUPSUpgradeable.sol";
+import {ERC165CheckerUpgradeable} from "../../utils/introspection/ERC165CheckerUpgradeable.sol";
 
 import {DaoAuthorizableUpgradeable} from "../../core/plugin/dao-authorizable/DaoAuthorizableUpgradeable.sol";
 import {IDAO} from "../../core/dao/IDAO.sol";

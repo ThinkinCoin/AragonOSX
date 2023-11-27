@@ -2,10 +2,10 @@
 
 pragma solidity ^0.8.8;
 
-import {PermissionLib} from "../../../core/permission/PermissionLib.sol";
-import {IDAO} from "../../../core/dao/IDAO.sol";
-import {PluginSetup} from "../../../framework/plugin/setup/PluginSetup.sol";
-import {IPluginSetup} from "../../../framework/plugin/setup/IPluginSetup.sol";
+import {PermissionLib} from "../../core/permission/PermissionLib.sol";
+import {IDAO} from "../../core/dao/IDAO.sol";
+import {PluginSetup} from "../../framework/plugin/setup/PluginSetup.sol";
+import {IPluginSetup} from "../../framework/plugin/setup/IPluginSetup.sol";
 import {mockPermissions, mockHelpers, mockPluginProxy} from "../PluginMockData.sol";
 import {PluginUUPSUpgradeableV1Mock, PluginUUPSUpgradeableV2Mock, PluginUUPSUpgradeableV3Mock} from "./PluginUUPSUpgradeableMock.sol";
 

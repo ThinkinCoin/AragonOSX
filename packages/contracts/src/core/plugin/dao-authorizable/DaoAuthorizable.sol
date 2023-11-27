@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {Context} from "../../../../utils/Context.sol";
+import {Context} from "../../../utils/Context.sol";
 
 import {IDAO} from "../../dao/IDAO.sol";
 import {_auth} from "../../utils/auth.sol";

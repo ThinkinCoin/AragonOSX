@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.8;
 
-import {Counters} from "../../../../utils/Counters.sol";
-import {ERC165} from "../../../../utils/introspection/ERC165.sol";
+import {Counters} from "../../../utils/Counters.sol";
+import {ERC165} from "../../../utils/introspection/ERC165.sol";
 
 import "./IProposal.sol";
 

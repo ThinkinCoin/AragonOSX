@@ -2,13 +2,13 @@
 
 pragma solidity ^0.8.8;
 
-import {IVotesUpgradeable} from "../../../../../governance/utils/IVotesUpgradeable.sol";
-import {SafeCastUpgradeable} from "../../../../../utils/math/SafeCastUpgradeable.sol";
-import {IERC20Upgradeable} from "../../../../../token/ERC20/IERC20Upgradeable.sol";
+import {IVotesUpgradeable} from "../../../../governance/utils/IVotesUpgradeable.sol";
+import {SafeCastUpgradeable} from "../../../../utils/math/SafeCastUpgradeable.sol";
+import {IERC20Upgradeable} from "../../../../token/ERC20/IERC20Upgradeable.sol";
 
-import {IMembership} from "../../../../core/plugin/membership/IMembership.sol";
-import {IDAO} from "../../../../core/dao/IDAO.sol";
-import {RATIO_BASE, _applyRatioCeiled} from "../../../utils/Ratio.sol";
+import {IMembership} from "../../../core/plugin/membership/IMembership.sol";
+import {IDAO} from "../../../core/dao/IDAO.sol";
+import {RATIO_BASE, _applyRatioCeiled} from "../../utils/Ratio.sol";
 import {MajorityVotingBase} from "../MajorityVotingBase.sol";
 import {IMajorityVoting} from "../IMajorityVoting.sol";
 

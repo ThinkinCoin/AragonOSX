@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.8;
 
-import {PluginCloneable} from "../../../core/plugin/PluginCloneable.sol";
-import {IDAO} from "../../../core/dao/IDAO.sol";
+import {PluginCloneable} from "../../core/plugin/PluginCloneable.sol";
+import {IDAO} from "../../core/dao/IDAO.sol";
 
 contract PluginCloneableV1Mock is PluginCloneable {
     uint256 public state1;

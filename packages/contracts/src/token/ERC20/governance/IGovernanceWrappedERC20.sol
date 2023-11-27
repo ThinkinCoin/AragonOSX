@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.8;
 
-import {IERC20Upgradeable} from "../../../../token/ERC20/IERC20Upgradeable.sol";
-import {ERC20Upgradeable} from "../../../../token/ERC20/ERC20Upgradeable.sol";
-import {ERC20WrapperUpgradeable} from "../../../../token/ERC20/extensions/ERC20WrapperUpgradeable.sol";
+import {IERC20Upgradeable} from "../../../token/ERC20/IERC20Upgradeable.sol";
+import {ERC20Upgradeable} from "../../../token/ERC20/ERC20Upgradeable.sol";
+import {ERC20WrapperUpgradeable} from "../../../token/ERC20/extensions/ERC20WrapperUpgradeable.sol";
 
 /// @title IGovernanceWrappedERC20
 /// @author Aragon Association

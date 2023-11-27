@@ -2,19 +2,19 @@
 
 pragma solidity ^0.8.8;
 
-import {Clones} from "../../../../../proxy/Clones.sol";
-import {Address} from "../../../../../utils/Address.sol";
-import {ERC165Checker} from "../../../../../utils/introspection/ERC165Checker.sol";
-import {IERC20Upgradeable} from "../../../../../token/ERC20/IERC20Upgradeable.sol";
-import {IVotesUpgradeable} from "../../../../../governance/utils/IVotesUpgradeable.sol";
+import {Clones} from "../../../../proxy/Clones.sol";
+import {Address} from "../../../../utils/Address.sol";
+import {ERC165Checker} from "../../../../utils/introspection/ERC165Checker.sol";
+import {IERC20Upgradeable} from "../../../../token/ERC20/IERC20Upgradeable.sol";
+import {IVotesUpgradeable} from "../../../../governance/utils/IVotesUpgradeable.sol";
 
-import {IDAO} from "../../../../core/dao/IDAO.sol";
-import {DAO} from "../../../../core/dao/DAO.sol";
-import {PermissionLib} from "../../../../core/permission/PermissionLib.sol";
-import {PluginSetup, IPluginSetup} from "../../../../framework/plugin/setup/PluginSetup.sol";
-import {GovernanceERC20} from "../../../../token/ERC20/governance/GovernanceERC20.sol";
-import {GovernanceWrappedERC20} from "../../../../token/ERC20/governance/GovernanceWrappedERC20.sol";
-import {IGovernanceWrappedERC20} from "../../../../token/ERC20/governance/IGovernanceWrappedERC20.sol";
+import {IDAO} from "../../../core/dao/IDAO.sol";
+import {DAO} from "../../../core/dao/DAO.sol";
+import {PermissionLib} from "../../../core/permission/PermissionLib.sol";
+import {PluginSetup, IPluginSetup} from "../../../framework/plugin/setup/PluginSetup.sol";
+import {GovernanceERC20} from "../../../token/ERC20/governance/GovernanceERC20.sol";
+import {GovernanceWrappedERC20} from "../../../token/ERC20/governance/GovernanceWrappedERC20.sol";
+import {IGovernanceWrappedERC20} from "../../../token/ERC20/governance/IGovernanceWrappedERC20.sol";
 import {MajorityVotingBase} from "../MajorityVotingBase.sol";
 import {TokenVoting} from "./TokenVoting.sol";
 

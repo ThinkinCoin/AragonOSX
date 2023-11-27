@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {Initializable} from "../../../proxy/utils/Initializable.sol";
+import {Initializable} from "../../proxy/utils/Initializable.sol";
 
 import {PermissionCondition} from "../../core/permission/PermissionCondition.sol";
 import {PluginUUPSUpgradeable} from "../../core/plugin/PluginUUPSUpgradeable.sol";

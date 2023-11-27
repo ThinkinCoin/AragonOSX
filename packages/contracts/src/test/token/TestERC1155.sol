@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import "../../../token/ERC1155/ERC1155.sol";
+import "../../token/ERC1155/ERC1155.sol";
 
 contract TestERC1155 is ERC1155 {
     constructor(string memory URI_) ERC1155(URI_) {}

@@ -2,13 +2,13 @@
 
 pragma solidity ^0.8.8;
 
-import {ERC165Checker} from "../../../../utils/introspection/ERC165Checker.sol";
+import {ERC165Checker} from "../../../utils/introspection/ERC165Checker.sol";
 
-import {ProtocolVersion} from "../../../utils/protocol/ProtocolVersion.sol";
-import {DAO, IDAO} from "../../../core/dao/DAO.sol";
-import {PermissionLib} from "../../../core/permission/PermissionLib.sol";
-import {PluginUUPSUpgradeable} from "../../../core/plugin/PluginUUPSUpgradeable.sol";
-import {IPlugin} from "../../../core/plugin/IPlugin.sol";
+import {ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
+import {DAO, IDAO} from "../../core/dao/DAO.sol";
+import {PermissionLib} from "../../core/permission/PermissionLib.sol";
+import {PluginUUPSUpgradeable} from "../../core/plugin/PluginUUPSUpgradeable.sol";
+import {IPlugin} from "../../core/plugin/IPlugin.sol";
 
 import {PluginRepoRegistry} from "../repo/PluginRepoRegistry.sol";
 import {PluginRepo} from "../repo/PluginRepo.sol";

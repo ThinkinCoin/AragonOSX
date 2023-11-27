@@ -2,8 +2,8 @@
 
 pragma solidity ^0.8.8;
 
-import {CountersUpgradeable} from "../../../../utils/CountersUpgradeable.sol";
-import {ERC165Upgradeable} from "../../../../utils/introspection/ERC165Upgradeable.sol";
+import {CountersUpgradeable} from "../../../utils/CountersUpgradeable.sol";
+import {ERC165Upgradeable} from "../../../utils/introspection/ERC165Upgradeable.sol";
 
 import "./IProposal.sol";
 

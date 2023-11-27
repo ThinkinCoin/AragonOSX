@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {ERC165} from "../../../utils/introspection/ERC165.sol";
+import {ERC165} from "../../utils/introspection/ERC165.sol";
 
 import {IProtocolVersion, ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
 import {IDAO} from "../dao/IDAO.sol";

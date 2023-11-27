@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import {CheckpointsUpgradeable} from "../../../utils/CheckpointsUpgradeable.sol";
+import {CheckpointsUpgradeable} from "../../utils/CheckpointsUpgradeable.sol";
 
 import {_uncheckedAdd, _uncheckedSub} from "../../utils/UncheckedMath.sol";
 
