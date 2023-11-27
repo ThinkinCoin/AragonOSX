@@ -4,12 +4,12 @@ pragma solidity ^0.8.8;
 
 import {SafeCastUpgradeable} from "../../../utils/math/SafeCastUpgradeable.sol";
 
-import {IDAO} from "../../core/dao/IDAO.sol";
-import {IMembership} from "../../core/plugin/membership/IMembership.sol";
-import {PluginUUPSUpgradeable} from "../../core/plugin/PluginUUPSUpgradeable.sol";
+import {IDAO} from "../../../core/dao/IDAO.sol";
+import {IMembership} from "../../../core/plugin/membership/IMembership.sol";
+import {PluginUUPSUpgradeable} from "../../../core/plugin/PluginUUPSUpgradeable.sol";
 
-import {ProposalUpgradeable} from "../../core/plugin/proposal/ProposalUpgradeable.sol";
-import {Addresslist} from "../../utils/Addresslist.sol";
+import {ProposalUpgradeable} from "../../../core/plugin/proposal/ProposalUpgradeable.sol";
+import {Addresslist} from "../../../utils/Addresslist.sol";
 import {IMultisig} from "./IMultisig.sol";
 
 /// @title Multisig - Release 1, Build 2
