@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import "../../../proxy/utils/initializable.sol";
+import "../../proxy/utils/initializable.sol";
 import "../../../utils/AddressUpgradeable.sol";
 
 import {IPermissionCondition} from "./IPermissionCondition.sol";
