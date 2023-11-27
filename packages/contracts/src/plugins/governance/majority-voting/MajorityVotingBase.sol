@@ -10,7 +10,7 @@ import {IProposal} from "../../../core/plugin/proposal/IProposal.sol";
 import {ProposalUpgradeable} from "../../../core/plugin/proposal/ProposalUpgradeable.sol";
 import {PluginUUPSUpgradeable} from "../../../core/plugin/PluginUUPSUpgradeable.sol";
 import {IDAO} from "../../../core/dao/IDAO.sol";
-import {RATIO_BASE, RatioOutOfBounds} from "../../../utils/Ratio.sol";
+import {RATIO_BASE, RatioOutOfBounds} from "../../utils/Ratio.sol";
 import {IMajorityVoting} from "./IMajorityVoting.sol";
 
 /// @title MajorityVotingBase
