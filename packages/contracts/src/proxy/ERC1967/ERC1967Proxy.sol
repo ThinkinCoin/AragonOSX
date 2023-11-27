@@ -4,7 +4,7 @@
 pragma solidity ^0.8.0;
 
 import "../../utils/Proxy.sol";
-import "./ERC1967Upgrade.sol";
+import "./ERC1967Upgradeable.sol";
 
 /**
  * @dev This contract implements an upgradeable proxy. It is upgradeable because calls are delegated to an
