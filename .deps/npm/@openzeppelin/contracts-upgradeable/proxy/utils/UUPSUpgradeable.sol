@@ -5,7 +5,7 @@ pragma solidity ^0.8.20;
 
 import {IERC1822Proxiable} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/interfaces/draft-IERC1822.sol";
 import {ERC1967Utils} from "https://raw.githubusercontent.com/mzfshark/openzeppelin-contracts/release-v4.9/contracts/proxy/ERC1967/ERC1967Utils.sol";
-import {Initializable} from "./Initializable.sol";
+import {Initializable} from "./initializable.sol";
 
 /**
  * @dev An upgradeability mechanism designed for UUPS proxies. The functions included here can perform an upgrade of an

@@ -3,7 +3,7 @@
 pragma solidity ^0.8.17;
 
 import "../../utils/introspection/ERC165StorageUpgradeable.sol";
-import "../../proxy/utils/Initializable.sol";
+import "../../proxy/utils/initializable.sol";
 import "../../proxy/utils/UUPSUpgradeable.sol";
 import "../../token/ERC20/utils/SafeERC20Upgradeable.sol";
 import "../../token/ERC20/IERC20Upgradeable.sol";

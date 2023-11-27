@@ -6,7 +6,7 @@ import {IERC20PermitUpgradeable} from "../../../token/ERC20/extensions/IERC20Per
 import {IERC20Upgradeable} from "../../../token/ERC20/IERC20Upgradeable.sol";
 import {IERC20MetadataUpgradeable} from "../../../token/ERC20/extensions/IERC20MetadataUpgradeable.sol";
 import {ERC20VotesUpgradeable} from "../../../token/ERC20/extensions/ERC20VotesUpgradeable.sol";
-import {Initializable} from "../../../proxy/utils/Initializable.sol";
+import {Initializable} from "../../../proxy/utils/initializable.sol";
 import {ERC165Upgradeable} from "../../../utils/introspection/ERC165Upgradeable.sol";
 import {IVotesUpgradeable} from "../../../governance/utils/IVotesUpgradeable.sol";
 

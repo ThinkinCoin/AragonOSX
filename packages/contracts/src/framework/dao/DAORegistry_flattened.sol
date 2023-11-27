@@ -656,10 +656,10 @@ library AddressUpgradeable {
     }
 }
 
-// File: https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/Initializable.sol
+// File: https://raw.githubusercontent.com/mzfshark/contracts-upgradeable/v4.9.3/contracts/proxy/utils/initializable.sol
 
 
-// OpenZeppelin Contracts (last updated v4.9.0) (proxy/utils/Initializable.sol)
+// OpenZeppelin Contracts (last updated v4.9.0) (proxy/utils/initializable.sol)
 
 pragma solidity ^0.8.2;
 

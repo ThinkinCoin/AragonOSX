@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.8;
 
-import "../../proxy/utils/Initializable.sol";
+import "../../proxy/utils/initializable.sol";
 
 import "../../core/permission/PermissionManager.sol";
 import "../../core/dao/IDAO.sol";
