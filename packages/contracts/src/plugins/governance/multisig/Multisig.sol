@@ -9,7 +9,7 @@ import {IMembership} from "../../../core/plugin/membership/IMembership.sol";
 import {PluginUUPSUpgradeable} from "../../../core/plugin/PluginUUPSUpgradeable.sol";
 
 import {ProposalUpgradeable} from "../../../core/plugin/proposal/ProposalUpgradeable.sol";
-import {Addresslist} from "../../../utils/Addresslist.sol";
+import {Addresslist} from "../../utils/Addresslist.sol";
 import {IMultisig} from "./IMultisig.sol";
 
 /// @title Multisig - Release 1, Build 2
