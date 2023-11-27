@@ -2,11 +2,11 @@
 
 pragma solidity ^0.8.8;
 
-import {Initializable} from "../../../../proxy/utils/Initializable.sol";
-import {ERC165Upgradeable} from "../../../../utils/introspection/ERC165Upgradeable.sol";
-import {UUPSUpgradeable} from "../../../../proxy/utils/UUPSUpgradeable.sol";
-import {AddressUpgradeable} from "../../../../utils/AddressUpgradeable.sol";
-import {ERC165CheckerUpgradeable} from "../../../../utils/introspection/ERC165CheckerUpgradeable.sol";
+import {Initializable} from "../../../proxy/utils/Initializable.sol";
+import {ERC165Upgradeable} from "../../../utils/introspection/ERC165Upgradeable.sol";
+import {UUPSUpgradeable} from "../../../proxy/utils/UUPSUpgradeable.sol";
+import {AddressUpgradeable} from "../../../utils/AddressUpgradeable.sol";
+import {ERC165CheckerUpgradeable} from "../../../utils/introspection/ERC165CheckerUpgradeable.sol";
 
 import {IProtocolVersion} from "../../utils/protocol/IProtocolVersion.sol";
 import {ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
