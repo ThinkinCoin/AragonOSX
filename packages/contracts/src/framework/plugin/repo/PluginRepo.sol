@@ -10,7 +10,7 @@ import {ERC165CheckerUpgradeable} from "../../../utils/introspection/ERC165Check
 
 import {IProtocolVersion} from "../../utils/protocol/IProtocolVersion.sol";
 import {ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
-import {PermissionManager} from "../../core/permission/PermissionManager.sol";
+import {PermissionManager} from "../../../core/permission/PermissionManager.sol";
 import {PluginSetup} from "../setup/PluginSetup.sol";
 import {IPluginSetup} from "../setup/PluginSetup.sol";
 import {IPluginRepo} from "./IPluginRepo.sol";
