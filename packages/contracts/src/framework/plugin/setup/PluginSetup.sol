@@ -7,7 +7,7 @@ import {ERC165Checker} from "../../../utils/introspection/ERC165Checker.sol";
 import {Clones} from "../../../proxy/Clones.sol";
 
 import {IProtocolVersion, ProtocolVersion} from "../../utils/protocol/ProtocolVersion.sol";
-import {PermissionLib} from "../../../../core/permission/PermissionLib.sol";
+import {PermissionLib} from "../../../core/permission/PermissionLib.sol";
 import {createERC1967Proxy as createERC1967} from "../../utils/Proxy.sol";
 import {IPluginSetup} from "./IPluginSetup.sol";
 
