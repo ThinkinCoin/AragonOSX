@@ -4,7 +4,7 @@
 pragma solidity ^0.8.0;
 
 import "./SafeERC20Upgradeable.sol";
-import "../../../proxy/utils/Initializable.sol";
+import "../../../proxy/utils/initializable.sol";
 
 /**
  * @dev A token holder contract that will allow a beneficiary to extract the

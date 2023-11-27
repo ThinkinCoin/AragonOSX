@@ -5,7 +5,7 @@ pragma solidity ^0.8.4;
 
 import "../CrossChainEnabledUpgradeable.sol";
 import "./LibAMBUpgradeable.sol";
-import "../../proxy/utils/Initializable.sol";
+import "../../proxy/utils/initializable.sol";
 
 /**
  * @dev https://docs.tokenbridge.net/amb-bridge/about-amb-bridge[AMB]

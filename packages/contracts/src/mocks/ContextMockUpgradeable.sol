@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 import "../utils/ContextUpgradeable.sol";
-import "../proxy/utils/Initializable.sol";
+import "../proxy/utils/initializable.sol";
 
 contract ContextMockUpgradeable is Initializable, ContextUpgradeable {
     event Sender(address sender);

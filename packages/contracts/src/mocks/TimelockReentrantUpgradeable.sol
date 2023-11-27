@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "../utils/AddressUpgradeable.sol";
-import "../proxy/utils/Initializable.sol";
+import "../proxy/utils/initializable.sol";
 
 contract TimelockReentrantUpgradeable is Initializable {
     address private _reenterTarget;

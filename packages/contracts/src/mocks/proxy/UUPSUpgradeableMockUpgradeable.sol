@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 
 import "../../proxy/utils/UUPSUpgradeable.sol";
 import "../../utils/CountersUpgradeable.sol";
-import "../../proxy/utils/Initializable.sol";
+import "../../proxy/utils/initializable.sol";
 
 contract NonUpgradeableMockUpgradeable is Initializable {
     CountersUpgradeable.Counter internal _counter;

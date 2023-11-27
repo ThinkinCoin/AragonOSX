@@ -4,7 +4,7 @@ pragma solidity ^0.8.9;
 
 import "./ContextMockUpgradeable.sol";
 import "../metatx/ERC2771ContextUpgradeable.sol";
-import "../proxy/utils/Initializable.sol";
+import "../proxy/utils/initializable.sol";
 
 // By inheriting from ERC2771Context, Context's internal functions are overridden automatically
 contract ERC2771ContextMockUpgradeable is Initializable, ContextMockUpgradeable, ERC2771ContextUpgradeable {

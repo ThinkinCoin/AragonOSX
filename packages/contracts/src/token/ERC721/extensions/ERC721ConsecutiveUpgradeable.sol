@@ -7,7 +7,7 @@ import "../ERC721Upgradeable.sol";
 import "../../../interfaces/IERC2309Upgradeable.sol";
 import "../../../utils/CheckpointsUpgradeable.sol";
 import "../../../utils/structs/BitMapsUpgradeable.sol";
-import "../../../proxy/utils/Initializable.sol";
+import "../../../proxy/utils/initializable.sol";
 
 /**
  * @dev Implementation of the ERC2309 "Consecutive Transfer Extension" as defined in

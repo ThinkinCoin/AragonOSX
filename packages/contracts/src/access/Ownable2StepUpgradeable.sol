@@ -4,7 +4,7 @@
 pragma solidity ^0.8.0;
 
 import "./OwnableUpgradeable.sol";
-import "../proxy/utils/Initializable.sol";
+import "../proxy/utils/initializable.sol";
 
 /**
  * @dev Contract module which provides access control mechanism, where

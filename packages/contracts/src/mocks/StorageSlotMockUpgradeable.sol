@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 import "../utils/StorageSlotUpgradeable.sol";
-import "../proxy/utils/Initializable.sol";
+import "../proxy/utils/initializable.sol";
 
 contract StorageSlotMockUpgradeable is Initializable {
     using StorageSlotUpgradeable for *;

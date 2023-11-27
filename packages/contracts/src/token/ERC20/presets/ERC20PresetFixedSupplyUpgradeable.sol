@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 import "../extensions/ERC20BurnableUpgradeable.sol";
-import "../../../proxy/utils/Initializable.sol";
+import "../../../proxy/utils/initializable.sol";
 
 /**
  * @dev {ERC20} token, including:

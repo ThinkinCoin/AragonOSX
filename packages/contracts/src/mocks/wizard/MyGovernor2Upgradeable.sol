@@ -7,7 +7,7 @@ import "../../governance/extensions/GovernorCountingSimpleUpgradeable.sol";
 import "../../governance/extensions/GovernorVotesUpgradeable.sol";
 import "../../governance/extensions/GovernorVotesQuorumFractionUpgradeable.sol";
 import "../../governance/extensions/GovernorTimelockControlUpgradeable.sol";
-import "../../proxy/utils/Initializable.sol";
+import "../../proxy/utils/initializable.sol";
 
 contract MyGovernor2Upgradeable is
     Initializable, GovernorUpgradeable,

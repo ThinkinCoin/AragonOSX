@@ -4,7 +4,7 @@
 pragma solidity ^0.8.4;
 
 import "./errorsUpgradeable.sol";
-import "../proxy/utils/Initializable.sol";
+import "../proxy/utils/initializable.sol";
 
 /**
  * @dev Provides information for building cross-chain aware contracts. This

@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 import "../utils/escrow/ConditionalEscrowUpgradeable.sol";
-import "../proxy/utils/Initializable.sol";
+import "../proxy/utils/initializable.sol";
 
 // mock class using ConditionalEscrow
 contract ConditionalEscrowMockUpgradeable is Initializable, ConditionalEscrowUpgradeable {

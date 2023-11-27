@@ -6,7 +6,7 @@ import "../../governance/extensions/GovernorProposalThresholdUpgradeable.sol";
 import "../../governance/extensions/GovernorSettingsUpgradeable.sol";
 import "../../governance/extensions/GovernorCountingSimpleUpgradeable.sol";
 import "../../governance/extensions/GovernorVotesQuorumFractionUpgradeable.sol";
-import "../../proxy/utils/Initializable.sol";
+import "../../proxy/utils/initializable.sol";
 
 abstract contract GovernorMockUpgradeable is
     Initializable, GovernorProposalThresholdUpgradeable,

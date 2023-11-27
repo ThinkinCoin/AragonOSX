@@ -4,7 +4,7 @@
 pragma solidity ^0.8.9;
 
 import "../utils/ContextUpgradeable.sol";
-import "../proxy/utils/Initializable.sol";
+import "../proxy/utils/initializable.sol";
 
 /**
  * @dev Context variant with ERC2771 support.
